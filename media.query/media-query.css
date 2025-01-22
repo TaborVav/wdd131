@@ -1,0 +1,52 @@
+ 
+ /* ----Font Style---- */
+ @import
+  url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: Roboto, sans-serif;
+}
+
+header,
+main,
+footer {
+  max-width: 1000px;
+  margin: 1rem auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background-color: lightblue;
+}
+section {
+  padding: 20px;
+  background-color: white;
+  /* margin: 1em; */
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+  header{
+    background-color: black;
+    color: white;
+}
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  header{
+    display:none;
+    /* display: block; */
+}
+}
+
+/* object-fit: cover */

@@ -82,8 +82,18 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  
   text-align: center;
+  padding-bottom: 2.2rem;
+}
+
+footer{
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: .3rem;
+}
+
+footer p{
+    text-align: center;
 }
 
 /* ============= MEDIUM SCREEN ================= */
@@ -113,5 +123,9 @@ img {
     flex-direction: row;
     justify-content: center;
     gap: 7rem;
+  }
+  footer p{
+    text-align: left;
+    padding-left: 12rem;
   }
 }

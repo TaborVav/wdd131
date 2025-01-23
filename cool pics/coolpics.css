@@ -1,3 +1,117 @@
-button {
-    border: none;
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+  --primary-color: #52489c;
+  --secondary-color: #59c3c3;
+  --accent-color: #f45b69;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: Mooli, san-serif;
+}
+body{
+    background-color: #e9e9e9;
+}
+header {
+color: var(--text-light);
+  background-color: var(--primary-color);
+  padding-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  font-family: var(--secondary-font);
+  color: var(--text-light);
+  font-size: 3em;
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+}
+
+.menu {
+  color: var(--text-light);
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 3rem;
+  padding-bottom: .5rem;
+  padding-top: .2rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+a:link,
+a:visited{
+    color: var(--text-light);
+}
+
+h2 {
+  font-family: var(--secondary-font);
+  color: var(--text-dark);
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+body {
+  font-family: var(--primary-font);
+  font-size: 1.2em;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  height: 250px;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+  box-shadow: 5px 5px 10px #6f6f6f;;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  
+  text-align: center;
+}
+
+/* ============= MEDIUM SCREEN ================= */
+@media screen and (min-width: 700px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-items {
+    display: none;
+  }
+}
+/* ============= LARGER SCREEN ================= */
+@media screen and (min-width: 1000px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  button.menu {
+    display: none;
+  }
+
+  .menu-items {
+    color: var(--text-light);
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 7rem;
+  }
 }

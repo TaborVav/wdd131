@@ -50,6 +50,10 @@ h1 {
   font-size: 1.5rem;
 }
 
+.hide {
+  display: none; 
+}
+
 a:link,
 a:visited{
     color: var(--text-light);
@@ -96,14 +100,57 @@ footer p{
     text-align: center;
 }
 
+.viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden;
+
+}
+
+
+.viewer img {
+  width: auto;   
+  height: auto;  
+  max-width: 90vw;  
+  max-height: 90vh; 
+  object-fit: contain; 
+}
+
+/* .viewer img-content {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+} */
+
+.close-viewer {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  font-size: 2em;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
 /* ============= MEDIUM SCREEN ================= */
 @media screen and (min-width: 700px) {
   .gallery {
     grid-template-columns: 1fr 1fr;
   }
 
-  .menu-items {
-    display: none;
+  .hide {
+    display: none; 
   }
 }
 /* ============= LARGER SCREEN ================= */
@@ -128,4 +175,9 @@ footer p{
     text-align: left;
     padding-left: 12rem;
   }
+
+  .viewer {
+    padding: 100px;
+  }
+  
 }

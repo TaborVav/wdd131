@@ -112,7 +112,6 @@ footer p{
   align-items: center;
   z-index: 10;
   overflow: hidden;
-
 }
 
 
@@ -177,7 +176,15 @@ footer p{
   }
 
   .viewer {
-    padding: 100px;
+  background: rgba(0, 0, 0, 0);
+  }
+
+  .viewer-content {
+    background: rgba(0, 0, 0, 0.75); /* Slightly darker to enhance contrast */
+    padding: 60px; /* Space around the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
 }

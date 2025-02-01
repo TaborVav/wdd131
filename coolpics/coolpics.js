@@ -31,7 +31,14 @@ function handleResize() {
       <img src="${pic}" alt="${alt}">
       </div>`;
   }
-
+  function viewerTemplate(pic, alt) {
+    return `<div class="viewer">
+      <div class="viewer-content">
+        <button class="close-viewer">X</button>
+        <img src="${pic}" alt="${alt}">
+      </div>
+    </div>`;
+}
   function viewHandler(event) {
     const clickedImage = event.target;
   

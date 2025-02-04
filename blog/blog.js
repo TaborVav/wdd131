@@ -11,7 +11,7 @@ const books = [
     releaseDate: "2005-03-15",
     description:
       "Enter the world of Septimus Heap, Wizard Apprentice. Magyk is his destiny.\nA powerful necromancer plans to seize control of all things Magykal. He has killed the Queen and locked up the Extraordinary Wizard. Now with Darke Magyk he will create a world filled with Darke creatures. But the Necromancer made one mistake. A vital detail he has overlooked means there is a boy who can stop him - the only problem is, the boy doesn't know it yet.\nFor the Heap family, life as they know is about to change, and the most fantastically fast-paced adventure of confused identities, magyk and mayhem, begin.",
-    imgSrc: "https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg",
+    imgSrc: "https://m.media-amazon.com/images/I/91-+urU2QOL._UF1000,1000_QL80_.jpg",
     imgAlt: "Book cover for Septimus Heap 1",
     ageGroup: "10-14",
     genre: "Fantasy",
@@ -111,101 +111,100 @@ const books = [
 // -----------------------------------------------------------
 
 function renderBooks(filteredBooks) {
-    const bookListContainer = document.querySelector(".book-list");
-    bookListContainer.innerHTML = ""; // Clear existing books
-  
-    filteredBooks.forEach((book) => {
-      const bookItem = document.createElement("div");
-      bookItem.classList.add("book-item");
-  
-      // Limit the description to 14 words
-      const maxWords = 14;
-      const words = book.description.split(" ");
-      const shortDescription =
-        words.length > maxWords
-          ? words.slice(0, maxWords).join(" ") + "..."
-          : book.description;
-  
-      // Format release date
-      const [year, month, day] = book.releaseDate.split("-").map(Number);
-      const formattedDate = new Date(year, month - 1, day).toLocaleDateString(
-        "en-US",
-        {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }
-      );
-  
-      // Round rating and generate stars
-      const roundedRating = Math.round(book.rating);
-      const stars = "★".repeat(roundedRating) + "☆".repeat(5 - roundedRating);
-  
-      bookItem.innerHTML = `
-        <img src="${book.imgSrc}" alt="${book.imgAlt}">
-        <div class="book-info">
-          <h2>${book.grayTitle}</h2>
-          <h3>${book.title}</h3>
-          <p>${book.author}</p>
-          <p>${formattedDate}</p>
-          <p>${book.genre}</p>
-          <p>${book.ageGroup}</p>
-          <p>${stars} ${book.rating}</p>
-          <p>${shortDescription}</p>
-          <button class="read-more" data-id="${book.id}">READ MORE ></button>
-        </div>
-      `;
-  
-      bookListContainer.appendChild(bookItem);
-    });
-  
-    // Add event listeners to "READ MORE" buttons
-    document.querySelectorAll(".read-more").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        const bookId = event.target.getAttribute("data-id");
-        const selectedBook = books.find((book) => book.id == bookId);
-        openModal(selectedBook);
-      });
-    });
-  }
-  
-  // -----------------------------------------------------------
-  // --------------    MODAL FUNCTIONALITY    --------------
-  // -----------------------------------------------------------
-  
-  function openModal(book) {
-    const modal = document.querySelector(".modal");
-    const modalContent = document.querySelector(".modal-content");
-  
-    modalContent.innerHTML = `
-      <button class="close-modal">&times;</button>
-      <img src="${book.imgSrc}" alt="${book.imgAlt}">
-      <h2>${book.grayTitle}</h2>
-      <h3>${book.title}</h3>
-      <p><strong>Author:</strong> ${book.author}</p>
-      <p><strong>Release Date:</strong> ${new Date(book.releaseDate).toLocaleDateString()}</p>
-      <p><strong>Genre:</strong> ${book.genre}</p>
-      <p><strong>Age Group:</strong> ${book.ageGroup}</p>
-      <p><strong>Rating:</strong> ${"★".repeat(Math.round(book.rating))} ${book.rating}</p>
-      <p>${book.description}</p>
-    `;
-  
-    modal.style.display = "flex"; // Show modal
-  
-    // Close modal functionality
-    document.querySelector(".close-modal").addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
+  const bookListContainer = document.querySelector(".book-list");
+  bookListContainer.innerHTML = ""; // Clear existing books
+
+  filteredBooks.forEach((book) => {
+    const bookItem = document.createElement("div");
+    bookItem.classList.add("book-item");
+
+    // Limit the description to 14 words
+    const maxWords = 14;
+    const words = book.description.split(" ");
+    const shortDescription =
+      words.length > maxWords
+        ? words.slice(0, maxWords).join(" ") + "..."
+        : book.description;
+
+    // Format release date
+    const [year, month, day] = book.releaseDate.split("-").map(Number);
+    const formattedDate = new Date(year, month - 1, day).toLocaleDateString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       }
+    );
+
+    // Round rating and generate stars
+    const roundedRating = Math.round(book.rating);
+    const stars = "★".repeat(roundedRating) + "☆".repeat(5 - roundedRating);
+
+    bookItem.innerHTML = `
+              <img src="${book.imgSrc}" alt="${book.imgAlt}">
+              <div class="book-info">
+              <h2>${book.grayTitle}</h2>
+                  <h3>${book.title}</h3>
+                  <p>${book.author}</p>
+                  <p>${formattedDate}</p>
+                  <p>${book.genre}</p>
+                  <p>${book.ageGroup}</p>
+                  <p>${stars} ${book.rating}</p>
+                  <p1>${shortDescription}</p1>
+                <button onclick="openBookDetails(${book.id})">READ MORE></button>
+              </div>
+          `;
+
+    bookListContainer.appendChild(bookItem);
+  });
+  // Add event listeners to "READ MORE" buttons
+  document.querySelectorAll(".read-more").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const bookId = event.target.getAttribute("data-id");
+      const selectedBook = books.find((book) => book.id == bookId);
+      openModal(selectedBook);
     });
-  }
+  });
+}
   
-  // -----------------------------------------------------------
-  // --------------    INITIALIZE PAGE    --------------
-  // -----------------------------------------------------------
-  
-  renderBooks(books);
+
+// -----------------------------------------------------------
+// -----------------    FILTER FUNCTION    ------------------
+// -----------------------------------------------------------
+
+// function filterBooks() {
+//   const titleInput = document.getElementById("title").value.toLowerCase();
+//   const authorInput = document.getElementById("author").value.toLowerCase();
+//   const genreInput = document.getElementById("genre").value.toLowerCase();
+//   const ageInput = document.getElementById("age").value;
+//   const ratingInput = document.getElementById("rating").value;
+
+//   const filteredBooks = books.filter((book) => {
+//     const matchesTitle = book.title.toLowerCase().includes(titleInput);
+//     const matchesAuthor = book.author.toLowerCase().includes(authorInput);
+//     const matchesGenre = book.genre.toLowerCase().includes(genreInput);
+//     const matchesAge = ageInput ? book.ageGroup === ageInput : true;
+//     const matchesRating = ratingInput
+//       ? book.rating >= Number(ratingInput)
+//       : true;
+
+//     return (
+//       matchesTitle &&
+//       matchesAuthor &&
+//       matchesGenre &&
+//       matchesAge &&
+//       matchesRating
+//     );
+//   });
+
+//   renderBooks(filteredBooks);
+// }
+
+// // Attach event listeners to filter inputs
+// document.querySelectorAll(".filter").forEach((input) => {
+//   input.addEventListener("input", filterBooks);
+// });
+
+// Initial render of all books
+renderBooks(books);

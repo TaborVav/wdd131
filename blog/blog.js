@@ -51,7 +51,7 @@ const books = [
     id: 4,
     grayTitle: "",
     title: "The Very Hungry Caterpiller",
-    author: "Brandon Mull",
+    author: "Eric Carle",
     releaseDate: "1969-06-03",
     description:
       "THE all-time classic story, from generation to generation, sold somewhere in the world every 30 seconds! Have you shared it with a child or grandchild in your life?\nOne sunny Sunday, the caterpillar was hatched out of a tiny egg. He was very hungry. On Monday, he ate through one apple; on Tuesday, he ate through three plums--and still he was hungry. When full at last, he made a cocoon around himself and went to sleep, to wake up a few weeks later wonderfully transformed into a butterfly!\nThe brilliantly innovative Eric Carle has dramatized the story of one of Nature's commonest yet loveliest marvels, the metamorphosis of the butterfly. This audiobook will delight as well as instruct the very youngest listener.",

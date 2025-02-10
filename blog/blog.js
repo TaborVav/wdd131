@@ -11,7 +11,8 @@ const books = [
     releaseDate: "2005-03-15",
     description:
       "Enter the world of Septimus Heap, Wizard Apprentice. Magyk is his destiny.\nA powerful necromancer plans to seize control of all things Magykal. He has killed the Queen and locked up the Extraordinary Wizard. Now with Darke Magyk he will create a world filled with Darke creatures. But the Necromancer made one mistake. A vital detail he has overlooked means there is a boy who can stop him - the only problem is, the boy doesn't know it yet.\nFor the Heap family, life as they know is about to change, and the most fantastically fast-paced adventure of confused identities, magyk and mayhem, begin.",
-    imgSrc: "https://m.media-amazon.com/images/I/91-+urU2QOL._UF1000,1000_QL80_.jpg",
+    imgSrc:
+      "https://m.media-amazon.com/images/I/91-+urU2QOL._UF1000,1000_QL80_.jpg",
     imgAlt: "Book cover for Septimus Heap 1",
     ageGroup: "10-14",
     genre: "Fantasy",
@@ -150,24 +151,18 @@ function renderBooks(filteredBooks) {
                   <p>${formattedDate}</p>
                   <p>${book.genre}</p>
                   <p>${book.ageGroup}</p>
-                  <p>${stars} ${book.rating}</p>
-                  <p1>${shortDescription}</p1>
+                  <p> 
+                  <span class="stars">${stars}</span>
+                  <span class="rating">${book.rating}</span> 
+                  </p>
+                  <p class="short-description">${shortDescription}</p> 
                 <button onclick="openBookDetails(${book.id})">READ MORE></button>
               </div>
           `;
 
     bookListContainer.appendChild(bookItem);
   });
-  // Add event listeners to "READ MORE" buttons
-  document.querySelectorAll(".read-more").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const bookId = event.target.getAttribute("data-id");
-      const selectedBook = books.find((book) => book.id == bookId);
-      openModal(selectedBook);
-    });
-  });
 }
-  
 
 // -----------------------------------------------------------
 // -----------------    FILTER FUNCTION    ------------------

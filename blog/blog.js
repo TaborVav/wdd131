@@ -10,7 +10,7 @@ const books = [
     author: "Angie Sage",
     releaseDate: "2005-03-15",
     description:
-      "Enter the world of Septimus Heap, Wizard Apprentice. Magyk is his destiny.\nA powerful necromancer plans to seize control of all things Magykal. He has killed the Queen and locked up the Extraordinary Wizard. Now with Darke Magyk he will create a world filled with Darke creatures. But the Necromancer made one mistake. A vital detail he has overlooked means there is a boy who can stop him - the only problem is, the boy doesn't know it yet.\nFor the Heap family, life as they know is about to change, and the most fantastically fast-paced adventure of confused identities, magyk and mayhem, begin.",
+      "Enter the world of Septimus Heap, Wizard Apprentice. Magyk is his destiny.<br><br>A powerful necromancer plans to seize control of all things Magykal. He has killed the Queen and locked up the Extraordinary Wizard. Now with Darke Magyk he will create a world filled with Darke creatures. But the Necromancer made one mistake. A vital detail he has overlooked means there is a boy who can stop him - the only problem is, the boy doesn't know it yet.<br><br>For the Heap family, life as they know is about to change, and the most fantastically fast-paced adventure of confused identities, magyk and mayhem, begin.",
     imgSrc:
       "https://m.media-amazon.com/images/I/91-+urU2QOL._UF1000,1000_QL80_.jpg",
     imgAlt: "Book cover for Septimus Heap 1",
@@ -25,7 +25,7 @@ const books = [
     author: "Rick Riordan",
     releaseDate: "2015-10-06",
     description:
-      "Magnus Chase has seen his share of trouble. Ever since that terrible night two years ago when his mother told him to run, he has lived alone on the streets of Boston, surviving by his wits, staying one step ahead of the police and the truant officers.\nOne day, Magnus learns that someone else is trying to track him down—his uncle Randolph, a man his mother had always warned him about. When Magnus tries to outmaneuver his uncle, he falls right into his clutches. Randolph starts rambling about Norse history and Magnus's birthright: a weapon that has been lost for thousands of years.\nThe more Randolph talks, the more puzzle pieces fall into place. Stories about the gods of Asgard, wolves, and Doomsday bubble up from Magnus's memory. But he doesn't have time to consider it all before a fire giant attacks the city, forcing him to choose between his own safety and the lives of hundreds of innocents. . ..\nSometimes, the only way to start a new life is to die.",
+      "Magnus Chase has seen his share of trouble. Ever since that terrible night two years ago when his mother told him to run, he has lived alone on the streets of Boston, surviving by his wits, staying one step ahead of the police and the truant officers.<br><br>One day, Magnus learns that someone else is trying to track him down—his uncle Randolph, a man his mother had always warned him about. When Magnus tries to outmaneuver his uncle, he falls right into his clutches. Randolph starts rambling about Norse history and Magnus's birthright: a weapon that has been lost for thousands of years.<br><br>The more Randolph talks, the more puzzle pieces fall into place. Stories about the gods of Asgard, wolves, and Doomsday bubble up from Magnus's memory. But he doesn't have time to consider it all before a fire giant attacks the city, forcing him to choose between his own safety and the lives of hundreds of innocents. . ..<br><br>Sometimes, the only way to start a new life is to die.",
     imgSrc:
       "https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300",
     imgAlt: "Book cover for Magnus Chase 1",
@@ -55,7 +55,7 @@ const books = [
     author: "Eric Carle",
     releaseDate: "1969-06-03",
     description:
-      "THE all-time classic story, from generation to generation, sold somewhere in the world every 30 seconds! Have you shared it with a child or grandchild in your life?\nOne sunny Sunday, the caterpillar was hatched out of a tiny egg. He was very hungry. On Monday, he ate through one apple; on Tuesday, he ate through three plums--and still he was hungry. When full at last, he made a cocoon around himself and went to sleep, to wake up a few weeks later wonderfully transformed into a butterfly!\nThe brilliantly innovative Eric Carle has dramatized the story of one of Nature's commonest yet loveliest marvels, the metamorphosis of the butterfly. This audiobook will delight as well as instruct the very youngest listener.",
+      "THE all-time classic story, from generation to generation, sold somewhere in the world every 30 seconds! Have you shared it with a child or grandchild in your life?<br><br>One sunny Sunday, the caterpillar was hatched out of a tiny egg. He was very hungry. On Monday, he ate through one apple; on Tuesday, he ate through three plums--and still he was hungry. When full at last, he made a cocoon around himself and went to sleep, to wake up a few weeks later wonderfully transformed into a butterfly!<br><br>The brilliantly innovative Eric Carle has dramatized the story of one of Nature's commonest yet loveliest marvels, the metamorphosis of the butterfly. This audiobook will delight as well as instruct the very youngest listener.",
     imgSrc:
       "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603739265i/4948.jpg",
     imgAlt: "Book cover for The Very Hungry Caterpillar",
@@ -85,15 +85,13 @@ const books = [
     author: "Jon Stone",
     releaseDate: "1971-01-1",
     description:
-      "Read along as Grover begs you not to turn the page—because there is a monster at this end of this book!\nLovable, furry old Grover is distressed to learn that there's a monster at the end of this book! He begs readers not to turn the pages, but of course kids feel they just have to see this monster for themselves. Grover is astonished—and toddlers will be delighted—to discover who is really the monster at the end of the book!\nMany adults name this book as their favorite Little Golden Book. This all-time favorite is now available as a Big Little Golden Book—perfect for lap-time reading.\nJon Stone (1931–1997) is the author of this book, but he was also Sesame Street's principal director until 1996. Working with Jim Henson, he helped create many of the Muppet characters, including Big Bird and Cookie Monster. He was also responsible for the show's format and setting. Stone contributed occasional announcer voices (such as the soap opera promo spoof \\\"School in the Afternoon\\\"), and served similar duty on two Muppet Meeting Films. Stone died of complications from Lou Gehrig's disease on March 30th, 1997. In his New York Times obituary, Joan Ganz Cooney describes Stone as \\\"probably the most brilliant writer of children's television material in America\\\".",
-    imgSrc:
-      "https://m.media-amazon.com/images/I/91uGpmJMyKL.jpg",
+      "Read along as Grover begs you not to turn the page—because there is a monster at this end of this book!<br><br>Lovable, furry old Grover is distressed to learn that there's a monster at the end of this book! He begs readers not to turn the pages, but of course kids feel they just have to see this monster for themselves. Grover is astonished—and toddlers will be delighted—to discover who is really the monster at the end of the book!<br><br>Many adults name this book as their favorite Little Golden Book. This all-time favorite is now available as a Big Little Golden Book—perfect for lap-time reading.<br><br>Jon Stone (1931\–1997) is the author of this book, but he was also Sesame Street's principal director until 1996. Working with Jim Henson, he helped create many of the Muppet characters, including Big Bird and Cookie Monster. He was also responsible for the show's format and setting. Stone contributed occasional announcer voices (such as the soap opera promo spoof \"School in the Afternoon\"), and served similar duty on two Muppet Meeting Films. Stone died of complications from Lou Gehrig's disease on March 30th, 1997. In his New York Times obituary, Joan Ganz Cooney describes Stone as \"probably the most brilliant writer of children's television material in America\".",
+    imgSrc: "https://m.media-amazon.com/images/I/91uGpmJMyKL.jpg",
     imgAlt: "Book cover for The Monster at the End of this Book",
     ageGroup: "4-8",
     genre: "Kids",
     rating: 3.92,
   },
-  
 ];
 
 // -----------------------------------------------------------
@@ -153,8 +151,54 @@ function renderBooks(filteredBooks) {
   });
 }
 
+// -----------------------------------------------------------
+// ----------------    READ MORE FUNCTION    -----------------
+// -----------------------------------------------------------
+function openBookDetails(bookId) {
+  const book = books.find((b) => b.id === bookId);
+  const roundedRating = Math.round(book.rating);
+  const stars = "★".repeat(roundedRating) + "☆".repeat(5 - roundedRating);
 
+  // Modal template
+  const modalHtml = `
+  <div class="book-modal">
+    <div class="modal-content">
+    <button class="close-modal">&times;</button>
+      <img src="${book.imgSrc}" alt="${book.imgAlt}">
+      <div class="modal-text">
+        <h2>${book.title}</h2>
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Release Date:</strong> ${new Date(book.releaseDate).toLocaleDateString()}</p>
+        <p><strong>Genre:</strong> ${book.genre}</p>
+        <p><strong>Age Group:</strong> ${book.ageGroup}</p>
+        <p><span class="stars">${stars}
+        </span> <span class="rating">${
+    book.rating
+  }</span></p>        <p>${book.description}</p>
+      </div>
+    </div>
+  </div>
+`;
 
+  // Add modal to the body
+  document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+  // Close modal when clicking the close button
+  document
+    .querySelector(".close-modal")
+    .addEventListener("click", closeBookDetails);
+
+  // Close modal when clicking outside the content
+  document.querySelector(".book-modal").addEventListener("click", (event) => {
+    if (event.target.classList.contains("book-modal")) {
+      closeBookDetails();
+    }
+  });
+}
+
+function closeBookDetails() {
+  document.querySelector(".book-modal")?.remove();
+}
 
 // -----------------------------------------------------------
 // -----------------    FILTER FUNCTION    ------------------

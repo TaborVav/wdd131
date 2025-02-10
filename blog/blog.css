@@ -330,9 +330,11 @@ button:hover {
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   .modal-content {
+    max-height: 90vh;
     flex-direction: column; /* Stacks the image and text on top of each other */
     align-items: center;
-    text-align: center;
+    text-align: left;
+    overflow-y: auto;
   }
 
   .modal-content img {

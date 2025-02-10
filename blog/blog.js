@@ -80,31 +80,20 @@ const books = [
   },
   {
     id: 6,
-    grayTitle: "",
-    title: "The Most Boring Book Ever",
-    author: "Brandon Sanderson",
-    releaseDate: "2024-08-24",
+    grayTitle: "Big Little Golden Books",
+    title: "The Monster at the End of this Book",
+    author: "Jon Stone",
+    releaseDate: "1971-01-1",
     description:
-      "In this humorous epic adventure, a boy is, on the one hand, having an ordinary day. He does his math homework and his chores and takes a nap...all while a surprising adventure unfolds around him involving pirates, dragons, and other unexpected perils. With clever interplay between text and art and an expansive, imaginative arc, this modern classic is a landmark fantasy picture book.",
+      "Read along as Grover begs you not to turn the page—because there is a monster at this end of this book!\nLovable, furry old Grover is distressed to learn that there's a monster at the end of this book! He begs readers not to turn the pages, but of course kids feel they just have to see this monster for themselves. Grover is astonished—and toddlers will be delighted—to discover who is really the monster at the end of the book!\nMany adults name this book as their favorite Little Golden Book. This all-time favorite is now available as a Big Little Golden Book—perfect for lap-time reading.\nJon Stone (1931–1997) is the author of this book, but he was also Sesame Street's principal director until 1996. Working with Jim Henson, he helped create many of the Muppet characters, including Big Bird and Cookie Monster. He was also responsible for the show's format and setting. Stone contributed occasional announcer voices (such as the soap opera promo spoof \\\"School in the Afternoon\\\"), and served similar duty on two Muppet Meeting Films. Stone died of complications from Lou Gehrig's disease on March 30th, 1997. In his New York Times obituary, Joan Ganz Cooney describes Stone as \\\"probably the most brilliant writer of children's television material in America\\\".",
     imgSrc:
-      "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1717527383i/207974153.jpg",
-    imgAlt: "Book cover for The Most Boring Book Ever",
+      "https://m.media-amazon.com/images/I/91uGpmJMyKL.jpg",
+    imgAlt: "Book cover for The Monster at the End of this Book",
     ageGroup: "4-8",
-    genre: "Fantasy",
+    genre: "Kids",
     rating: 3.92,
   },
-  //   {
-  //     id: 6,
-  //     title: "Fablehaven",
-  //     author: "Brandon Mull",
-  //     releaseDate: "2006-06-07",
-  //     description: "A hidden refuge for magical creatures, but is it truly safe?",
-  //     imgSrc: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1460309528i/44652.jpg",
-  //     imgAlt: "Book cover for Fablehaven",
-  //     ageGroup: "12-16",
-  //     genre: "Fantasy",
-  //     rating: 4,
-  //   },
+  
 ];
 
 // -----------------------------------------------------------
@@ -163,6 +152,9 @@ function renderBooks(filteredBooks) {
     bookListContainer.appendChild(bookItem);
   });
 }
+
+
+
 
 // -----------------------------------------------------------
 // -----------------    FILTER FUNCTION    ------------------

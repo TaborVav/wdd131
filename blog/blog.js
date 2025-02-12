@@ -90,7 +90,7 @@ const books = [
     imgAlt: "Book cover for The Monster at the End of this Book",
     ageGroup: "4-8",
     genre: "Kids",
-    rating: 3.92,
+    rating: 4.46,
   },
 ];
 
@@ -98,15 +98,15 @@ const books = [
 // --------------    DISPLAY FUNCTION    --------------
 // -----------------------------------------------------------
 
-function renderBooks(filteredBooks) {
+function renderBooks(allBooks) {
   const bookListContainer = document.querySelector(".book-list");
   bookListContainer.innerHTML = ""; // Clear existing books
 
-  filteredBooks.forEach((book) => {
+  allBooks.forEach((book) => {
     const bookItem = document.createElement("div");
     bookItem.classList.add("book-item");
 
-    // Limit the description to 14 words
+    // ====== Limit the description to 14 words ======
     const maxWords = 14;
     const words = book.description.split(" ");
     const shortDescription =
@@ -114,7 +114,7 @@ function renderBooks(filteredBooks) {
         ? words.slice(0, maxWords).join(" ") + "..."
         : book.description;
 
-    // Format release date
+    // ====== Format release date ======
     const [year, month, day] = book.releaseDate.split("-").map(Number);
     const formattedDate = new Date(year, month - 1, day).toLocaleDateString(
       "en-US",
@@ -125,14 +125,14 @@ function renderBooks(filteredBooks) {
       }
     );
 
-    // Round rating and generate stars
+    // ====== Round rating and generate stars ======
     const roundedRating = Math.round(book.rating);
     const stars = "★".repeat(roundedRating) + "☆".repeat(5 - roundedRating);
 
     bookItem.innerHTML = `
               <img src="${book.imgSrc}" alt="${book.imgAlt}">
               <div class="book-info">
-              <h2>${book.grayTitle}</h2>
+                  <h2>${book.grayTitle}</h2>
                   <h3>${book.title}</h3>
                   <p>${book.author}</p>
                   <p>${formattedDate}</p>
@@ -143,7 +143,7 @@ function renderBooks(filteredBooks) {
                   <span class="rating">${book.rating}</span> 
                   </p>
                   <p class="short-description">${shortDescription}</p> 
-                <button onclick="openBookDetails(${book.id})">READ MORE></button>
+                <button onclick="readMoreDetails(${book.id})">READ MORE></button>
               </div>
           `;
 
@@ -152,9 +152,9 @@ function renderBooks(filteredBooks) {
 }
 
 // -----------------------------------------------------------
-// ----------------    READ MORE FUNCTION    -----------------
+// ----------------    READ MORE FORMAT    -----------------
 // -----------------------------------------------------------
-function openBookDetails(bookId) {
+function readMoreDetails(bookId) {
   const book = books.find((b) => b.id === bookId);
   const roundedRating = Math.round(book.rating);
   const stars = "★".repeat(roundedRating) + "☆".repeat(5 - roundedRating);
@@ -171,24 +171,25 @@ function openBookDetails(bookId) {
         <p><strong>Release Date:</strong> ${new Date(book.releaseDate).toLocaleDateString()}</p>
         <p><strong>Genre:</strong> ${book.genre}</p>
         <p><strong>Age Group:</strong> ${book.ageGroup}</p>
-        <p><span class="stars">${stars}
-        </span> <span class="rating">${
-    book.rating
-  }</span></p>        <p>${book.description}</p>
+        <p>
+        <span class="stars">${stars}
+        </span> <span class="rating">${book.rating}</span>
+        </p>        
+        <p>${book.description}</p>
       </div>
     </div>
   </div>
-`;
+  `;
 
-  // Add modal to the body
+  // ====== Add modal to the body ======
   document.body.insertAdjacentHTML("beforeend", modalHtml);
 
-  // Close modal when clicking the close button
+  // ====== Close modal when clicking the close button ======
   document
     .querySelector(".close-modal")
     .addEventListener("click", closeBookDetails);
 
-  // Close modal when clicking outside the content
+  // ====== Close modal when clicking outside the content ======
   document.querySelector(".book-modal").addEventListener("click", (event) => {
     if (event.target.classList.contains("book-modal")) {
       closeBookDetails();

@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: #f4f4f4; */
+}
+
+.card-container {
+  position: relative;
+  width: 350px;
+}
+
+.card-front,
+.card-back {
+  padding: 15px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+}
+
+.card-front {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+#card-total {
+  grid-column: 1;
+}
+
+/* #card-total::placeholder{
+    justify-self: left;
+} */
+
+
+.card-image {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.card-number {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+  }
+
+#card-number {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+}
+
+#card-name {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+}
+
+#card-expiry {
+  grid-column: 2 / span 2;
+}
+
+.card-back {
+  margin-left: 50px;
+  margin-right: -50px;
+  z-index: 1;
+}
+
+input {
+  display: block;
+  /* width: 100%; */
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+input.total {
+    display: block;
+    /* width: 100%; */
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

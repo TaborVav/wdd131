@@ -1,0 +1,276 @@
+/* ====== General Styles ====== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+/* ====== Header Styles ======*/
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  width: 60px;
+  height: auto;
+  margin-right: 15px;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header-title {
+  display: flex;
+  align-items: center; /* Aligns image and text side by side */
+  /* gap: 10px; */
+  align-items: flex-end;
+}
+
+/* Adjustments for image */
+.header-title img {
+  width: 60px;
+  height: auto;
+}
+
+
+/* Adjustments for title */
+.header-title h1 {
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  margin: 0;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+/* ====== Search Bar ====== */
+header form {
+  width: 80%;
+  /* max-width: 80%; */
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 0 auto; /* Centers the form */
+}
+
+header input {
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1.8px;
+}
+
+.search-button svg {
+  width: 30px; /* Adjust size */
+  height: 30px;
+  stroke-width: 1.2; /* Thinner line */
+  color: black; /* Change to your preferred color */
+}
+
+header button {
+  padding: 6px 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1.8px;
+}
+
+header button:hover {
+  background-color: black;
+}
+
+.search-button svg:hover {
+    background-color: black;
+  color: white;
+}
+
+/* ====== Recipe Section ====== */
+.recipe {
+    width: 75%;
+  /* max-width: 800px; */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-color: black;
+  border-style: solid;
+  border-width: 1.8px;
+}
+
+.category {
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    font-size: 20px;
+    /* line-height: 50px;  */
+    border: 1.8px solid black; 
+    display: inline-block; 
+    padding: 5px 10px; 
+}
+
+/* == Recipe Title == */
+.recipe h2 {
+    text-align: left;
+    font-size: 35px;
+    margin-bottom: 0px; 
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(0, 140, 215);
+}
+
+/* == Rating Styles == */
+
+.rating {
+    margin-top: 0; 
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: gold;
+  }
+
+
+/* == Recipe Container == */
+.recipe-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* == Recipe Image == */
+.recipe-img {
+  width: 40%;
+  max-width: 300px;
+  /* border-radius: 15px; */
+  object-fit: cover;
+}
+
+/* == Recipe Content == */
+.recipe-content {
+  flex: 1;
+}
+
+/* == Footer Styles == */
+
+footer {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 14px;
+    /* max-width: 800px; */
+    
+}
+
+/* Attribution */
+.attribution a {
+    font-size: 0.6em;
+    text-decoration: none;
+    color: rgb(0, 140, 215);
+  }
+
+  .attribution a:hover {
+    color: rgb(57, 0, 180);
+  }
+  /* Social Media Icons */
+.social {
+    margin-top: 10px;
+}
+
+.social img {
+    width: 45px;
+}
+
+/* ===================================== */
+
+@media screen and (max-width: 600px) {
+    /* Stack header items and center them */
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .header-title {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Make the search bar take full width */
+    header form {
+      width: 90%;
+      max-width: none; /* Remove max-width restriction */
+    }
+  
+    /* Stack the recipe content */
+    .recipe-container  {
+      flex-direction: column; /* Stacks items */
+      /* align-items: center;  */
+      width: 100%; /* Makes sure it fits smaller screens */
+    }
+
+    .recipe-content {
+        flex-direction: start;
+    }
+    
+  
+    /* Make the recipe box fit the screen */
+    .recipe {
+      width: 80%; /* Make it responsive */
+      /* max-width: 90%;  */
+    }
+  
+    /* Ensure the image resizes properly */
+    .recipe-img {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto; 
+    }
+    .recipe h2 {
+        text-align: left;
+    }
+    
+    /* Center text in recipe content */
+    .description {
+        display: none;
+    }
+
+    .rating {
+        display: flex;
+        flex-direction: start;
+      }
+  
+    /* Center and stack footer elements */
+    footer {
+      flex-direction: column-reverse;
+      text-align: center;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    /* Center the social icons */
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Space between icons */
+    }
+    
+  }
+  
+  

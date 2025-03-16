@@ -34,14 +34,11 @@ header h1 {
   align-items: flex-end;
 }
 
-/* Adjustments for image */
 .header-title img {
   width: 60px;
   height: auto;
 }
 
-
-/* Adjustments for title */
 .header-title h1 {
   font-family: "Amatic SC", sans-serif;
   font-weight: 600;
@@ -102,32 +99,46 @@ header button:hover {
 }
 
 /* ====== Recipe Section ====== */
+
+
 .recipe {
-    width: 75%;
-  /* max-width: 800px; */
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
+  background-color: #fff;
+  border: 2px solid black;
   border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 75%;
+  display: flex;
+  gap: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-color: black;
-  border-style: solid;
-  border-width: 1.8px;
+} 
+
+.recipe__tags {
+  list-style: none;  /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px; 
+  flex-wrap: wrap; 
 }
 
-.category {
-    font-weight: 300;
-    font-style: normal;
-    margin: 0;
-    font-size: 20px;
-    /* line-height: 50px;  */
-    border: 1.8px solid black; 
-    display: inline-block; 
-    padding: 5px 10px; 
+.recipe__tags li {
+  background-color: #f3f3f3;
+  border: 1.8px solid black; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  display: inline-block;
 }
+
+
+
+
+
 
 /* == Recipe Title == */
-.recipe h2 {
+/* .recipe h2 {
     text-align: left;
     font-size: 35px;
     margin-bottom: 0px; 
@@ -135,39 +146,74 @@ header button:hover {
     font-weight: 700;
     font-style: normal;
     color: rgb(0, 140, 215);
+} */
+
+.recipe h2 a {
+  text-decoration: none;
+  color: rgb(0, 140, 215);
+  font-family: "Amatic SC", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  /* margin-bottom: 5px; */
+  margin-bottom: 0; 
+  /* padding-bottom: 5px; */
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
 }
+
+/* .recipe h2 {
+  display: inline-block; 
+} */
+
+.recipe h2 {
+  margin-top: 35px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+
 
 /* == Rating Styles == */
 
-.rating {
+.recipe__ratings {
     margin-top: 0; 
     margin-bottom: 20px;
     font-size: 24px;
     color: gold;
+    margin-top: 0px;
+    margin-bottom: 35px;
   }
+
 
 
 /* == Recipe Container == */
 .recipe-container {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  /* gap: 20px; */
 }
 
 /* == Recipe Image == */
-.recipe-img {
+/* .recipe-img {
   width: 40%;
   max-width: 300px;
-  /* border-radius: 15px; */
+  object-fit: cover;
+} */
+
+.recipe img {
+  width: 40%; /* Matches your original design */
+  max-width: 300px;
   object-fit: cover;
 }
+
 
 /* == Recipe Content == */
 .recipe-content {
   flex: 1;
 }
 
-/* == Footer Styles == */
+/* ======= Footer Styles ======== */
 
 footer {
     display: flex;
@@ -198,10 +244,44 @@ footer {
     width: 45px;
 }
 
-/* ===================================== */
+.recipe__description {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+/* #recipes .recipe {
+  margin-bottom: 20px;
+} */
+
+/* .recipe figcaption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+
+.hidden {
+  display: none;
+
+}
+
+#no-results-message {
+  color: #d9534f;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+/* ============================================ MEDIA SCREEN ============================================ */
 
 @media screen and (max-width: 600px) {
     /* Stack header items and center them */
+
+    .recipe {
+      display: block;
+    } 
+
     header {
       flex-direction: column;
       text-align: center;
@@ -237,11 +317,18 @@ footer {
     }
   
     /* Ensure the image resizes properly */
-    .recipe-img {
+    /* .recipe-img {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto; 
+    } */
+
+    .recipe img {
       width: 100%;
       max-width: 500px;
       margin: 0 auto; 
     }
+
     .recipe h2 {
         text-align: left;
     }
@@ -250,6 +337,10 @@ footer {
     .description {
         display: none;
     }
+
+    .recipe__description {
+      display: none;
+  }
 
     .rating {
         display: flex;

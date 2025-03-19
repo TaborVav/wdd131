@@ -1,0 +1,475 @@
+@keyframes flicker {
+    0%   { opacity: 1; }
+  5%   { opacity: 0.95; }
+  10%  { opacity: 0.97; }
+  15%  { opacity: 0.92; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0.96; }
+  30%  { opacity: 0.98; }
+  35%  { opacity: 0.93; }
+  40%  { opacity: 1; }
+  45%  { opacity: 0.94; }
+  50%  { opacity: 0.99; }
+  55%  { opacity: 0.91; }
+  60%  { opacity: 1; }
+  65%  { opacity: 0.97; }
+  70%  { opacity: 0.95; }
+  75%  { opacity: 1; }
+  80%  { opacity: 0.96; }
+  85%  { opacity: 0.98; }
+  90%  { opacity: 0.93; }
+  95%  { opacity: .99; }
+  100% { opacity: 0.97; }
+}
+
+@keyframes screenShift {
+    0%   { transform: translate(0px, 0px); }
+  8%   { transform: translate(0.1px, -0.1px); }
+  16%  { transform: translate(-0.1px, 0.1px); }
+  24%  { transform: translate(-0.2px, -0.2px); }
+  32%  { transform: translate(-0.05px, -0.1px); }
+  40%  { transform: translate(0.05px, 0px); }
+  48%  { transform: translate(0.2px, -0.2px); }
+  56%  { transform: translate(0.05px, -0.05px); }
+  64%  { transform: translate(-0.05px, 0px); }
+  72%  { transform: translate(0.1px, 0.1px); }
+  80%  { transform: translate(-0.05px, -0.05px); }
+  88%  { transform: translate(0px, 0.05px); }
+  96%  { transform: translate(0.05px, 0px); }
+  100% { transform: translate(0px, 0px); }
+  }
+
+
+body {
+    margin: 0;
+    background: #000;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* font-family: monospace; */
+    animation: flicker 3s infinite steps(1), screenShift 5s infinite steps(1);
+    text-shadow: 0 0 2px #0f0, 0 0 5px #0f0, 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.05),
+        rgba(0, 255, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* ===== Chromataic abrasion ====== */
+body {
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: screen;
+    background: radial-gradient(circle, rgba(0,255,0,0.1) 0%, transparent 70%);
+}
+
+header h1, #dialogue, #choices button, #file-buttons button {
+    text-shadow: 
+        0.5px 0px #0f0, 
+        -0.5px 0px rgba(0, 255, 0, 0.5);
+}
+/* ============ */
+
+/* =====Blur/noise ======= */
+body::before {
+    /* add to your existing scanlines */
+    filter: blur(0.3px);
+}
+
+body::after {
+    /* subtle animated noise overlay */
+    background: url('https://www.transparenttextures.com/patterns/noise.png');
+    opacity: 0.03;
+    animation: noiseShift 1s infinite;
+}
+
+@keyframes noiseShift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+/* ================ */
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #00FF00;
+}
+
+header h1 {
+    color: #0f0; 
+    font-family: monospace;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 20px;
+    display: inline-block;
+}
+
+.nav{
+    padding: 0 20px;
+}
+
+.nav-buttons button {
+    background: none;
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    overflow-y: hidden;
+}
+
+#dialogue {
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+    padding: 20px;
+
+}
+
+#choices {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#choices button {
+    background: none;
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#choices-wrapper {
+    position: relative;
+    min-height: 70px; /* reserve space */
+    margin-top: 10px;
+    padding: 0 20px 10px 20px; /* add horizontal padding & space below dialogue */
+
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #00FF00;
+}
+
+#image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #00FF00;
+    padding: 10px 20px;
+}
+
+#files {
+    flex: 1;
+    padding: 10px;
+}
+
+#file-buttons button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    background: none;
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    cursor: pointer;
+}
+
+#image-popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+.popup-content {
+    background: black;
+    border: 1px solid #0f0;
+    padding: 30px;
+    text-align: center;
+    position: relative; /* so the close button is positioned relative to this */
+}
+
+.popup-content img {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#close-popup {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    color: #0f0;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10; /* make sure it's on top */
+}
+
+
+.spacer {
+    height: 20px;
+}
+.user-response {
+    color: #7CFC00; /* Lighter green for user responses */
+    font-style: italic;
+}
+ /* === blinking curser === */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* === footer === */
+footer {
+    padding: 10px;
+    border-top: 1px solid #00FF00;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* === terminal prompt === */
+#terminal-prompt {
+    display: none;
+    font-family: monospace;
+    color: #0f0;
+    margin-bottom: 5px;
+    position: relative;
+    top: -5px; /* slight offset to stay just above buttons */
+}
+
+#terminal-prompt .cursor {
+    display: inline-block;
+    width: 10px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+/* .dialogue-block {
+    margin-bottom: 15px;
+}
+
+.divider {
+    border-top: 1px solid #00FF00;
+    margin-top: 5px;
+    opacity: 0.3;
+}
+.dialogue-block {
+    margin-bottom: 20px;
+} */
+
+
+/* ============================== */
+/* ======= AMBER  VERSION ======= */
+/* ============================== */
+header h1 {
+    color: #FFB347; 
+    font-family: monospace;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 20px;
+    display: inline-block;
+    text-shadow: 
+        0.5px 0px #FFB347, 
+        -0.5px 0px rgba(255, 179, 71, 0.5);
+}
+
+footer {
+    padding: 10px;
+    border-top: 1px solid #FFB347;
+    text-align: center;
+    font-size: 0.9em;
+    color: #FFB347;
+}
+
+#terminal-prompt {
+    color: #FFB347;
+}
+
+#terminal-prompt .cursor {
+    color: #FFB347;
+}
+
+
+body {
+    margin: 0;
+    background: #000;
+    color: #FFB347;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    animation: flicker 3s infinite steps(1), screenShift 5s infinite steps(1);
+    text-shadow: 0 0 2px #FFB347, 0 0 5px #FFB347, 0 0 10px rgba(255, 179, 71, 0.5);
+}
+
+/* Scanlines + glow tint */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 179, 71, 0.05),
+        rgba(255, 179, 71, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    filter: blur(0.3px);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Chromatic aberration / soft radial tint */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: screen;
+    background: radial-gradient(circle, rgba(255,179,71,0.1) 0%, transparent 70%);
+}
+
+/* Headings and buttons */
+header h1, #dialogue, #choices button, #file-buttons button {
+    text-shadow: 
+        0.5px 0px #FFB347, 
+        -0.5px 0px rgba(255, 179, 71, 0.5);
+}
+
+/* Borders and accents */
+header, .right-panel, #image-area, footer {
+    border-color: #FFB347;
+}
+
+/* Buttons */
+.nav-buttons button, #choices button, #file-buttons button, #close-popup {
+    border: 1px solid #FFB347;
+    color: #FFB347;
+}
+
+.popup-content {
+    border: 1px solid #FFB347;
+}
+
+.user-response {
+    color: #FFD580; /* A softer amber tone for user input */
+}
+
+/* Optional: cursor stays amber */
+#terminal-prompt, #terminal-prompt .cursor {
+    color: #FFB347;
+}
+
+#text::-webkit-scrollbar {
+    width: 8px;
+}
+
+#text::-webkit-scrollbar-thumb {
+    background: #FFB347; /* amber color */
+    border-radius: 4px;
+}
+
+#text::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.crt-logo {
+    width: 80px;
+    height: auto;
+    filter: brightness(1.2) contrast(1.2);
+    opacity: 0.9;
+    image-rendering: pixelated;
+    mix-blend-mode: screen;
+    animation: flicker 3s infinite steps(1), screenShift 5s infinite steps(1);
+    position: relative;
+}
+
+/* Add glow with a pseudo-element */
+.crt-logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('clues/arcanalgo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: blur(4px) brightness(2.5) opacity(0.7);
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+

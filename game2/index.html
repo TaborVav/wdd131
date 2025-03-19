@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Terminal Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+
+    <meta name="author" content="Tabor Vavra">
+    <meta name="description" content="A dialogue based puzzle and mystery game">
+
+</head>
+<body>
+    <header>
+        <h1>ARCANA CO.</h1>
+        <img src="clues/arcanalgo.png" alt="Logo" class="crt-logo" />
+        <div class="nav-buttons">
+            <button>Child Page 1</button>
+            <button>Child Page 2</button>
+        </div>
+    </header>
+
+    <main>
+        
+        <div class="left-panel">
+            <div id="dialogue"></div>
+            <div id="choices-wrapper">
+                <div id="terminal-prompt">> <span class="cursor">_</span></div>
+                <div id="choices"></div>
+            </div>
+            
+            
+        </div>
+        <div class="right-panel">
+            <div id="image-area">
+                <p>Image Area</p>
+            </div>
+            <div id="files">
+                <h3>Files</h3>
+                <div id="file-buttons"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="image-popup" class="hidden">
+        <div class="popup-content">
+            <span id="close-popup">&times;</span>
+            <img id="popup-img" src="" alt="file image">
+        </div>
+    </div>
+    
+    <footer>
+        <p>SYSTEM STATUS: ONLINE | © 2025 Retro Terminal Corp.</p>
+    </footer>    
+    
+    <svg width="0" height="0">
+        <filter id="crt-distortion">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="turbulence"/>
+          <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="3" />
+        </filter>
+      </svg>
+      
+</body>
+</html>

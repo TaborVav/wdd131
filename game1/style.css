@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.05) 4px,
+        rgba(0, 0, 0, 0.05) 6px
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+.glow {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; }
+    50% { text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00; }
+}
+
+header {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+header button {
+    background: transparent;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#terminal {
+    margin-top: 60px;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+input {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+    caret-color: #00ff00;
+    width: 100%;
+}
+
+input::placeholder {
+    color: rgba(0, 255, 0, 0.5);
+}

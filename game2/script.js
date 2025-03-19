@@ -17,16 +17,16 @@ let sceneIndex = 0;
 const scenes = [
     {
         id: "boot",
-        text: 'Booting...\n\n*** SYSTEM ONLINE ***\n\n"Hello? Is someone there? Please... I need help."\n\nDo you type: hello or who?',
+        text: 'Booting...\n\n*** SYSTEM ONLINE ***\n\nHello? Is someone there? Please... I need help.\n',
         choices: [
-            { text: "hello", next: "hello_response" },
-            { text: "who", next: "who_response" }
+            { text: "Hello...", next: "hello_response" },
+            { text: "Who is this?", next: "who_response" }
         ],
         image: "clues/clue1.jpeg"
     },
     {
         id: "hello_response",
-        text: '"Oh thank goodness! I\'m... I\'m stuck. I don\'t know where I am. I think it’s some kind of bunker. Can you help me?"',
+        text: 'Oh thank goodness! I\'m... I\'m stuck. I don\'t know where I am. I think it’s some kind of bunker. Can you help me?\n',
         choices: [
             { text: "just breathe", next: "calm_response" },
             { text: "where are you?", next: "where_response" }
@@ -35,7 +35,7 @@ const scenes = [
     },
     {
         id: "who_response",
-        text: '"My name’s Alex. I was exploring this underground place with some friends... They locked me in as a prank... hours ago. Now, I’m really scared."',
+        text: 'My name’s Alex. I was exploring this underground place with some friends... They locked me in as a prank... hours ago. Now, I’m really scared.\n',
         choices: [
             { text: "calm down", next: "calm_response" },
             { text: "where are you?", next: "where_response" }
@@ -44,7 +44,7 @@ const scenes = [
     },
     {
         id: "calm_response",
-        text: '"I-I’m trying, but it’s dark. There’s only this old terminal here. Then you showed up. I think I heard something moving outside."',
+        text: 'I-I’m trying, but it’s dark. There’s only this old terminal here. Then you showed up. I think I heard something moving outside.\n',
         choices: [
             { text: "describe the room", next: "describe_room" },
             { text: "what sound?", next: "what_sound" }
@@ -53,7 +53,7 @@ const scenes = [
     },
     {
         id: "where_response",
-        text: '"It looks like an old military bunker... metal walls, pipes, and this rusty computer I’m talking to you through."',
+        text: 'It looks like an old military bunker... metal walls, pipes, and this rusty computer I’m talking to you through.\n',
         choices: [
             { text: "describe the room", next: "describe_room" },
             { text: "what sound?", next: "what_sound" }
@@ -62,7 +62,7 @@ const scenes = [
     },
     {
         id: "describe_room",
-        text: '"There’s a door with no handle, a vent up high, and some strange panel with wires on the wall."',
+        text: 'There’s a door with no handle, a vent up high, and some strange panel with wires on the wall.\n',
         choices: [
             { text: "inspect the panel", next: "inspect_panel" },
             { text: "try the vent", next: "try_vent" }
@@ -71,7 +71,7 @@ const scenes = [
     },
     {
         id: "what_sound",
-        text: '"Scraping... like metal on concrete. It stopped now. Please, what should I do?"',
+        text: 'Scraping... like metal on concrete. It stopped now. Please, what should I do?\n',
         choices: [
             { text: "inspect the panel", next: "inspect_panel" },
             { text: "try the vent", next: "try_vent" }
@@ -80,7 +80,7 @@ const scenes = [
     },
     {
         id: "try_vent",
-        text: '"I can’t reach it. Too high up, and nothing to climb on. The panel might be my only way."',
+        text: 'I can’t reach it. Too high up, and nothing to climb on. The panel might be my only way.\n',
         choices: [
             { text: "inspect the panel", next: "inspect_panel" }
         ],
@@ -88,18 +88,18 @@ const scenes = [
     },
     {
         id: "inspect_panel",
-        text: '"The panel has colored wires and some old labels. It looks dangerous. What should I cut?"',
+        text: 'The panel has colored wires and some old labels. It looks dangerous. What should I cut?\n',
         choices: [
             { text: "red", next: "shock_red" },
             { text: "blue", next: "success_blue" },
             { text: "green", next: "fail_green" },
             { text: "yellow", next: "shock_red" }
         ],
-        image: "images/schematic.png" // assuming schematic image here
+        image: "images/schematic.png"
     },
     {
         id: "success_blue",
-        text: '"It worked! The door just clicked. It might be open now."',
+        text: 'It worked! The door just clicked. It might be open now.\n',
         choices: [
             { text: "open the door", next: "open_door" },
             { text: "peek first", next: "peek_door" }
@@ -108,7 +108,7 @@ const scenes = [
     },
     {
         id: "shock_red",
-        text: 'Sparks fly!\n\n"AH! Something shocked me! The computer screen is glitching—wait... are you still there?"',
+        text: 'Sparks fly!\n\nAH! Something shocked me! The computer screen is glitching—wait... are you still there?\n',
         choices: [
             { text: "yes", next: "glitch_recovery" },
             { text: "hold on", next: "glitch_recovery" }
@@ -117,7 +117,7 @@ const scenes = [
     },
     {
         id: "fail_green",
-        text: 'A loud bang!\n\n"The lights just died... I think I messed up. I can barely see anything."',
+        text: 'A loud bang!\n\nThe lights just died... I think I messed up. I can barely see anything.\n',
         choices: [
             { text: "stay put", next: "connection_lost" },
             { text: "feel around", next: "connection_lost" }
@@ -126,7 +126,7 @@ const scenes = [
     },
     {
         id: "glitch_recovery",
-        text: 'STATIC...\n[CONNECTION LOST]\nWould you like to RECONNECT or ABANDON the system?',
+        text: 'STATIC...\n[CONNECTION LOST]\nWould you like to RECONNECT or ABANDON the system?\n',
         choices: [
             { text: "reconnect", next: "reconnect_scene" },
             { text: "abandon", next: "shutdown" }
@@ -135,7 +135,7 @@ const scenes = [
     },
     {
         id: "connection_lost",
-        text: 'STATIC...\n[CONNECTION LOST]\nWould you like to RECONNECT or ABANDON the system?',
+        text: 'STATIC...\n[CONNECTION LOST]\nWould you like to RECONNECT or ABANDON the system?\n',
         choices: [
             { text: "reconnect", next: "reconnect_scene" },
             { text: "abandon", next: "shutdown" }
@@ -144,7 +144,7 @@ const scenes = [
     },
     {
         id: "reconnect_scene",
-        text: '"I... I’m still here. But something feels... wrong. I don’t think I’m alone anymore."',
+        text: 'I... I’m still here. But something feels... wrong. I don’t think I’m alone anymore.\n',
         choices: [
             { text: "what's wrong?", next: "wrong_response" },
             { text: "what do you mean?", next: "wrong_response" }
@@ -153,7 +153,7 @@ const scenes = [
     },
     {
         id: "wrong_response",
-        text: '"I can hear voices... but they don’t sound human. Also... I think this terminal is older than I thought. The date says 1953. That can’t be right..."',
+        text: 'I can hear voices... but they don’t sound human. Also... I think this terminal is older than I thought. The date says 1953. That can’t be right...\n',
         choices: [
             { text: "check the logs", next: "logs" },
             { text: "ask Alex's age", next: "alex_age" }
@@ -162,7 +162,7 @@ const scenes = [
     },
     {
         id: "logs",
-        text: "LOG FILE: 'PROJECT VESSEL'\n[TOP SECRET]\nSubject's consciousness successfully transferred into digital framework...",
+        text: "LOG FILE: 'PROJECT VESSEL'\n[TOP SECRET]\nSubject's consciousness successfully transferred into digital framework...\n",
         choices: [
             { text: "ask Alex’s age", next: "alex_age" },
             { text: "confront Alex", next: "alex_panic" }
@@ -171,7 +171,7 @@ const scenes = [
     },
     {
         id: "alex_age",
-        text: '"Wait... No, no... What are you saying? I\'ve been here for... for HOURS, not decades!"',
+        text: 'Wait... No, no... What are you saying? I\'ve been here for... for HOURS, not decades!\n',
         choices: [
             { text: "explain further", next: "system_error" },
             { text: "mention project info", next: "system_error" }
@@ -180,7 +180,7 @@ const scenes = [
     },
     {
         id: "alex_panic",
-        text: '"Wait... No, no... What are you saying? I\'ve been here for... for HOURS, not decades!"',
+        text: 'Wait... No, no... What are you saying? I\'ve been here for... for HOURS, not decades!\n',
         choices: [
             { text: "explain further", next: "system_error" },
             { text: "mention project info", next: "system_error" }
@@ -189,7 +189,7 @@ const scenes = [
     },
     {
         id: "system_error",
-        text: 'SYSTEM ERROR\n"No! Get me out! Get me out of here!"\nWARNING: SYSTEM UNSTABLE',
+        text: 'SYSTEM ERROR\nNo! Get me out! Get me out of here!\nWARNING: SYSTEM UNSTABLE\n',
         choices: [
             { text: "force quit", next: "shutdown" },
             { text: "ride it out", next: "deep_simulation" }
@@ -198,7 +198,7 @@ const scenes = [
     },
     {
         id: "deep_simulation",
-        text: 'The screen flickers violently.\nSuddenly... you feel cold, like something is pulling you...\n\n[Loading deeper simulation...]\n\nDo you continue?',
+        text: 'The screen flickers violently.\nSuddenly... you feel cold, like something is pulling you...\n\n[Loading deeper simulation...]\n\nDo you continue?\n',
         choices: [
             { text: "continue", next: "inside_terminal" }
         ],
@@ -206,29 +206,29 @@ const scenes = [
     },
     {
         id: "inside_terminal",
-        text: '"Hey... can you hear me? Who are you? Why are YOU in the terminal?"\n\nYou look around, realizing you are inside the simulation now.\n\nTo be continued...',
+        text: 'Hey... can you hear me? Who are you? Why are YOU in the terminal?\n\nYou look around, realizing you are inside the simulation now.\n\nTo be continued...\n',
         choices: [],
         image: null
     },
     {
         id: "open_door",
-        text: 'You open the door and step into darkness...\nTo be continued...',
+        text: 'You open the door and step into darkness...\nTo be continued...\n',
         choices: [],
         image: null
     },
     {
         id: "peek_door",
-        text: 'You peek through the crack... shadows shift beyond.\nTo be continued...',
+        text: 'You peek through the crack... shadows shift beyond.\nTo be continued...\n',
         choices: [],
         image: null
     },
     {
         id: "shutdown",
-        text: 'SYSTEM SHUTDOWN\nConnection terminated.',
+        text: 'SYSTEM SHUTDOWN\nConnection terminated.\n',
         choices: [],
         image: null
     }
-];
+];    
 
 
 
@@ -254,9 +254,8 @@ function typeText(text, callback) {
     const typing = setInterval(() => {
         if (i < text.length) {
             if (text[i] === '\n') {
-                line.innerHTML += '<br>';
+                line.innerHTML += '<br><br>'; 
             } else {
-                // escape HTML special chars to prevent breaking tags
                 const safeChar = text[i]
                     .replace(/&/g, "&amp;")
                     .replace(/</g, "&lt;")
@@ -266,7 +265,7 @@ function typeText(text, callback) {
             i++;
         } else {
             clearInterval(typing);
-            terminalPrompt.style.display = 'block'; // show prompt after typing
+            terminalPrompt.style.display = 'block';
             if (callback) callback();
         }
     }, 50);
@@ -279,7 +278,7 @@ function typeText(text, callback) {
 function echoUserInput(choiceText) {
     const line = document.createElement('div');
     line.classList.add('line', 'user-input');
-    line.innerHTML = `> ${choiceText}`;
+    line.innerHTML = `> ${choiceText}<br><br>`; 
     dialogue.prepend(line);
 }
 

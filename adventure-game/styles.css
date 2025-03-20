@@ -298,10 +298,10 @@ footer {
 .crt-logo {
     width: 80px;
     height: auto;
-    filter: brightness(1.2) contrast(1.2);
+    /* filter: brightness(1.2) contrast(1.2); */
     opacity: 0.9;
-    image-rendering: pixelated;
-    mix-blend-mode: screen;
+    /* image-rendering: pixelated; */
+    /* mix-blend-mode: screen; */
     animation: flicker 3s infinite steps(1), screenShift 5s infinite steps(1);
     position: relative;
 }
@@ -324,3 +324,43 @@ footer {
 .hidden {
     display: none !important;
 }
+
+/* === START UP === */
+#startup-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #000;
+    color: #FFB347;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+#startup-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+#loading-bar-container {
+    width: 300px;
+    border: 1px solid #FFB347;
+    padding: 2px;
+}
+
+#loading-bar {
+    width: 0%;
+    height: 10px;
+    background: #FFB347;
+    transition: width 3s linear;
+}
+.hidden {
+    display: none;
+}
+
+
+

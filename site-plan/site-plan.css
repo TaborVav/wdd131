@@ -1,0 +1,228 @@
+/* === GOOGLE FONTS IMPORT === */
+@import url("https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato");
+
+/* === ROOT VARIABLES === */
+:root {
+  --primary-color: #000;
+  --secondary-color: #FFB347;
+  --accent1-color: #FFB347;
+  --accent2-color: #FFB347;
+  --heading-font: monospace;
+  --paragraph-font: 'Courier New', Courier, monospace;
+}
+
+/* === ANIMATIONS === */
+@keyframes flicker {
+  0%, 20%, 40%, 60%, 75%, 100% { opacity: 1; }
+  5%, 25%, 65%, 70% { opacity: 0.95; }
+  10%, 30%, 85%, 95% { opacity: 0.97; }
+  15%, 35%, 90% { opacity: 0.92; }
+  45% { opacity: 0.94; }
+  50% { opacity: 0.99; }
+  55% { opacity: 0.91; }
+  80% { opacity: 0.96; }
+}
+
+@keyframes screenShift {
+  0%, 100% { transform: translate(0px, 0px); }
+  8% { transform: translate(0.1px, -0.1px); }
+  16% { transform: translate(-0.1px, 0.1px); }
+  24% { transform: translate(-0.2px, -0.2px); }
+  32% { transform: translate(-0.05px, -0.1px); }
+  40% { transform: translate(0.05px, 0px); }
+  48% { transform: translate(0.2px, -0.2px); }
+  56% { transform: translate(0.05px, -0.05px); }
+  64% { transform: translate(-0.05px, 0px); }
+  72% { transform: translate(0.1px, 0.1px); }
+  80% { transform: translate(-0.05px, -0.05px); }
+  88% { transform: translate(0px, 0.05px); }
+  96% { transform: translate(0.05px, 0px); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* === BASE STYLES === */
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4em;
+  font-size: 18px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: var(--paragraph-font);
+  animation: flicker 3s infinite steps(1), screenShift 5s infinite steps(1);
+  text-shadow: 0 0 1px var(--secondary-color), 0 0 2px var(--secondary-color), 0 0 10px rgba(255, 179, 71, 0.5);
+}
+
+/* === CRT OVERLAY === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 179, 71, 0.05),
+      rgba(255, 179, 71, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+  );
+  filter: blur(0.3px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* === HEADER === */
+header {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid var(--secondary-color);
+  background: var(--primary-color);
+}
+
+header > h1,
+header > h2 {
+  color: var(--secondary-color);
+  font-family: var(--heading-font);
+  text-shadow: 0.5px 0px var(--secondary-color), -0.5px 0px rgba(255, 179, 71, 0.5);
+}
+
+/* === HEADINGS === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--secondary-color);
+}
+
+/* === NAVIGATION === */
+nav {
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  padding: 1em;
+  text-decoration: none;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  margin: 0 5px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  text-shadow: 0 0 5px var(--secondary-color);
+}
+
+/* === PARAGRAPH === */
+p {
+  color: var(--secondary-color);
+  padding: 1em;
+  font-family: var(--paragraph-font);
+}
+
+/* === HR === */
+hr {
+  height: 3px;
+  margin: 35px 0;
+  background: var(--accent1-color);
+  border: none;
+}
+
+/* === IMAGE === */
+.logo-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 10%;
+  height: auto;
+}
+
+.home-wireframe,
+.page2-wireframe{
+  display: block;
+  margin: 0 auto;
+  max-width: 60%;
+  height: auto;
+}
+
+/* === COLORS TABLE === */
+.colors {
+  width: 100%;
+  min-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+.colors th {
+  border: 2px solid var(--secondary-color);
+}
+td.secondary {
+  width: 25%;
+  height: 3em;
+}
+
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4) {
+  color: #000;
+}
+
+.primary {
+  background: var(--primary-color);
+}
+.secondary {
+  background: var(--secondary-color);
+}
+.accent1 {
+  background: var(--accent1-color);
+}
+.accent2 {
+  background: var(--accent2-color);
+}
+
+/* === PARAGRAPH COLORED BOX === */
+p.colored {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 1em;
+}
+
+/* === SITEMAP GRID === */
+.sitemap {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(6, 15%);
+  grid-template-rows: 3em 1.5em 1.5em 3em;
+  grid-template-areas:
+    ". . home home . ."
+    ". . . top . ."
+    ". left left right right ."
+    "page2 page2 . . page3 page3";
+  margin-top: 2em;
+}
+.sitemap > div {
+  text-align: center;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  line-height: 3em;
+  border: 1px solid var(--primary-color);
+}
+.sm-home { grid-area: home; }
+.sm-page2 { grid-area: page2; }
+.sm-page3 { grid-area: page3; }
+.top { grid-area: top; }
+.left { grid-area: left; }
+.right { grid-area: right; }
+
+/* === UTILITY === */
+.hidden {
+  display: none !important;
+}
+.cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s step-end infinite;
+}
+
+

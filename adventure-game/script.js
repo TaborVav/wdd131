@@ -17,7 +17,7 @@ let sceneIndex = 0;
 const scenes = [
     {
         id: "boot",
-        text: "------------------------\n*** SYSTEM ONLINE ***\n------------------------\n\nHello? Is someone there? Please... I need help.\n",
+        text: "------------------------\n*** SYSTEM ONLINE ***\n------------------------\n\nHello?\nIs someone there? Please... I need help.\n",
         choices: [
             { text: "Yeah, I’m here. Who are you?", next: "who_response" },
             { text: "Uh... Who is this?", next: "who_response" },
@@ -38,7 +38,7 @@ const scenes = [
     },
     {
         id: "silent_1",
-        text: "\nHello? Please, if someone is there, say something. I don’t know what to do.\n",
+        text: "\nHello?! Please! If someone is there, say something. I don’t know what to do.\n",
         choices: [
             { text: "I’m here. Who are you?", next: "who_response" },
             { text: ". . .", next: "silent_2" }

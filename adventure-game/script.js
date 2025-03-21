@@ -384,6 +384,11 @@ closePopup.onclick = () => {
     imagePopup.classList.add('hidden');
 };
 
+imagePopup.addEventListener('click', (e) => {
+    if (e.target === imagePopup) {
+        imagePopup.classList.add('hidden');
+    }
+});
 
 // =======================
 // Startup screen logic with loading + transition

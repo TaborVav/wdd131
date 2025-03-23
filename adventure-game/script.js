@@ -54,7 +54,7 @@ const scenes = [
 
 {
     id: "where",
-    text: "\nSome kind of bunker. Underground, I think.\nMe and my friends found this old place. They thought it’d be funny to lock me in a closet.\nI was freaking out... Then I heard this sharp hum.\nHurt my ears.\nThen a door opened in the back of the closet.\nI ended up here. Behind the walls.\nCan’t get back.",
+    text: "\nSome kind of bunker. Underground, I think.\nMe and my friends found this old place. They thought it’d be funny to lock me in a closet.\nI was freaking out... Then I heard this sharp hum.\nHurt my ears.\nThen a door opened in the back of the closet.\nI fell out, it closed shut.\nLeaving me in a dark hallway.\nAfter a lot of yelling and hitting the wall, I walked the only way I could, and I ended up in here.\nI can’t get back.",
     choices: [
         { text: "Can you describe the room?", next: "where_describe" },
         // { text: "", next: "" }, 
@@ -66,7 +66,7 @@ const scenes = [
 
 {
     id: "where_describe",
-    text: "\nWell... It pretty bleak...\nBare concrete. Heavy pipes. Rust...\nA metal bookshelf with some dusty books and canned food\nSome old computers\nBut this is the only one working in here.\n",
+    text: "\nWell... It pretty bleak...\nBare concrete. Heavy pipes. Rust...\nA metal bookshelf with some dusty books and canned food.\nSome old computers.\nBut this is the only one working in here.\n",
     choices: [
         { text: "Maybe see if the computer can show a way out.", next: "try_computer" },
         // { text: "", next: "" }, 
@@ -90,7 +90,7 @@ const scenes = [
 
 {
     id: "what_co",
-    text: "\nThe Arcana company... I don't know what that means.\nBut there’s schematics here.\nBlueprints for something.\n",
+    text: "\nThe Arcana company... I don't know what that means.\nBut theres lots of files that wont open...\nOh here's one! A schematic.\nOr blueprint of some sort?\n'schematic #7'???\n",
     choices: [
         { text: "Can you try sending them?", next: "send_blueprints" },
         // { text: "", next: "" }, 
@@ -109,7 +109,7 @@ const scenes = [
         // { text: "No...*evil chuckle*", next: "" }
 
     ],
-    image: file/arcanalgo.png
+    image: "file/arcanalgo.png",
 },
 
 {
@@ -117,7 +117,7 @@ const scenes = [
     text: "\nNo idea.\nHalf of it doesn't even look like english.\nMaybe its corrupted.\n",
     choices: [
         { text: "Keep digging. Anything about exits?", next: "ab_exits" },
-        // { text: "", next: "" }, 
+        // { text: "Look at it closer to be sure. Is anything on it familiar to you?", next: "blu_aha" }, 
         // { text: "", next: "" }
 
     ],
@@ -138,7 +138,7 @@ const scenes = [
 
 {
     id: "keep_l",
-    text: "\nHold on.\nThere’s a maintenance schematic for a panel on the wall\nLooks like its behind the bookshelf.\n",
+    text: "\nOh got one!\nThere’s a maintenance schematic for a panel on the wall\nLooks like its behind the bookshelf.\n",
     choices: [
         { text: "Can you get behind the bookshelf?", next: "bookshelf_b" },
         // { text: "", next: "" }, 
@@ -150,22 +150,23 @@ const scenes = [
 
 {
     id: "bookshelf_b",
-    text: "\nIt's pretty big...\ I can try, theres a reason my friends could shove me in the closet\nI'm not the strongest individual.",
+    text: "\nIt's pretty big...\ I can try. Theres a reason my friends could shove me in the closet.\nI'm not the strongest or biggest individual.\n",
     choices: [
         { text: "Go try! There's a chance it could help!", next: "bookshelf_f" },
-        // { text: "", next: "" }, 
+        // { text: "So... You're a wimp?", next: "wimpy" }, 
         // { text: "", next: "" }
 
     ],
     image: null
 },
 
+// ------Maybe find a way to make it pause here for a moment?
 {
-    id: "",
-    text: "\n\n",
+    id: "bookshelf_f",
+    text: "\nI moved it!\nWell. More so I rocked it until it tipped over and nearly crushed me...\nBut, good news, I found the panel.\nBad news, it's locked and needs a passcode of some sort.\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
+        { text: "Great Job! Maybe we can find the code in the computer files?", next: "f_code" },
+        // { text: "Try hitting random numbers.", next: "random_num" }, 
         // { text: "", next: "" }
 
     ],
@@ -173,11 +174,11 @@ const scenes = [
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "f_code",
+    text: "\nChecking now.\nThere’s a section labeled \"Override Codes.\"\nBut the numbers are... off.\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
+        { text: "Off how...?", next: "offhow" },
+        // { text: "Corrupted?", next: "" }, 
         // { text: "", next: "" }
 
     ],
@@ -185,11 +186,11 @@ const scenes = [
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "offhow",
+    text: "\nLike they’re incomplete.\nMissing digits.\nOr more so... replaced with symbols.\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
+        { text: "Strange...", next: "somewhere" },
+        { text: "Lets backtrack. Look carefully at the blueprint. Is there anything there you might recognize?", next: "blu_aha" }, 
         // { text: "", next: "" }
 
     ],
@@ -197,11 +198,11 @@ const scenes = [
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "blu_aha",
+    text: "\nNo.\nNot a thing...\nWait a minute.\nIt is hard to say for sure, it was dark and I was really freaking out\n but this might be the closet I was stuck inside!\n I remember hitting my elbow on what felt like a metal bar and this schematic has that weird lever!\n And the door on the right looks similar to the door I fell out of into the hallway!\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
+        { text: "Now we are getting somewhere!", next: "somewhere" },
+        // { text: "You dumb kid, how did you not see that sooner?!", next: "" }, 
         // { text: "", next: "" }
 
     ],
@@ -209,44 +210,44 @@ const scenes = [
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "somewhere",
+    text: "\nWait. Don't send me any messages, it beeps on my side when you do and I think I heard something...\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
-        // { text: "", next: "" }
+        { text: ". . .", next: "quiet" },
+        // { text: "What do you mean? I thought you were alone.", next: "" }, 
+        // { text: "WEE-WOO-WEE-WOO!!!!", next: "" }
 
     ],
     image: null
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "quiet",
+    text: "\nIt stopped. but for a moment I thought in the hallway I saw...\nNo couldnt have been.\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
-        // { text: "", next: "" }
+        { text: "It's probably just your nerves getting to you.", next: "pro_ima" },
+        // { text: "You thought you saw...what?", next: "" }, 
+        // { text: "Maybe go look down the hallway to investigate.", next: "" }
 
     ],
     image: null
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "pro_ima",
+    text: "\nYa you're proabably right.\n Lets get back to work\nI want to get out of here\nWe know theres a code panel, and we have the 'Schematic #7' with the closet/device I got shoved in.\nWhat do you think we should focus on?\n",
     choices: [
-        { text: "", next: "" },
-        // { text: "", next: "" }, 
-        // { text: "", next: "" }
+        { text: "Let's look for clues with the pod.", next: "clu_thepod" },
+        // { text: "Let's see if we can find out more about that code panel.", next: "" }, 
+        // { text: "I have another question.", next: "noth_q" }
 
     ],
     image: null
 },
 
 {
-    id: "",
-    text: "\n\n",
+    id: "clu_thepod",
+    text: "\nAlright let me see if i can find any file that explains the pod.\nHmmm... This is interesting.\nThe pod seems to be\n",
     choices: [
         { text: "", next: "" },
         // { text: "", next: "" }, 

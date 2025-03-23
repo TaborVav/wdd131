@@ -15,51 +15,274 @@ let sceneIndex = 0;
 // SCENES DATA STRUCTURE
 // =======================
 const scenes = [
+
     {
         id: "boot",
-        text: "------------------------\n*** SYSTEM ONLINE ***\n------------------------\n\nHello?\nIs someone there? Please... I need help.\n",
+        text: "------------------------\n*** SYSTEM ONLINE ***\n------------------------\n\n",
         choices: [
-            { text: "Yeah, I’m here. Who are you?", next: "who_response" },
-            { text: "Uh... Who is this?", next: "who_response" },
-            { text: ". . .", next: "silent_1" }
+            { text: "Initiate Program?", next: "hello" },
+            { text: "Hello?", next: "hello" },
+            { text: "Help Games", next: "hello" }
 
         ],
         image: null
     },
+
+    {
+        id: "hello",
+        text: "\nHello?\nWait... are you a person?\nHow did you get this computer to turn on? Let alone connect to it...\nYou know what? I dont even care. I'm desperate for any help I can get at this point.\n",
+        choices: [
+            { text: "Who is this?", next: "who_response" },
+            // { text: "", next: "" }, 
+            // { text: ". . .", next: "silent_1" }
+
+        ],
+        image: null
+    },
+      
     {
         id: "who_response",
-        text: "\nOh, thank heavens! My name is… uh, Atlas. I don’t know what’s going on. \nI was with my friends, and—look, I just need help. I’m trapped.\n",
+        text: "\nMy name’s Atlas.\nI thought I was alone.\nIt’s been hours.\nI tried this computer but couldn't get it to turn on until your message appeared, then it just turned on by itself\n",
         choices: [
-            { text: "Just breathe", next: "calm_response" },
-            { text: "Where are you?", next: "where_response" }
-        ],
-        image: "file/blueprint.png"
+            { text: "Where are you?", next: "where" },
+            // { text: "", next: "" }, 
+            // { text: "", next: "" }
 
-    },
-    {
-        id: "silent_1",
-        text: "\nHello?! Please! If someone is there, say something. I don’t know what to do.\n",
-        choices: [
-            { text: "I’m here. Who are you?", next: "who_response" },
-            { text: ". . .", next: "silent_2" }
-        ],
-        image: null
-    },
-    {
-        id: "silent_2",
-        text: "\nPLEASE!\n Jake if this is you messing with me - the joke has gone way to far!\nLET ME OUT!!!\n",
-        choices: [
-            { text: "Hello..? sorry I'm here,\nwho are you?", next: "who_response" },
-            { text: "Out? Where are you?", next: "where_1" }
         ],
         image: null
     },
 
+{
+    id: "where",
+    text: "\nSome kind of bunker. Underground, I think.\nMe and my friends found this old place. They thought it’d be funny to lock me in a closet.\nI was freaking out... Then I heard this sharp hum.\nHurt my ears.\nThen a door opened in the back of the closet.\nI ended up here. Behind the walls.\nCan’t get back.",
+    choices: [
+        { text: "Can you describe the room?", next: "where_describe" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
 
+    ],
+    image: null
+},
 
+{
+    id: "where_describe",
+    text: "\nWell... It pretty bleak...\nBare concrete. Heavy pipes. Rust...\nA metal bookshelf with some dusty books and canned food\nSome old computers\nBut this is the only one working in here.\n",
+    choices: [
+        { text: "Maybe see if the computer can show a way out.", next: "try_computer" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
 
+    ],
+    image: null
+},
 
+{
+    id: "try_computer",
+    text: "\nOkay.\nThere’s a menu. Looks like old company files maybe...\n",
+    choices: [
+        { text: "Company? What company?", next: "what_co" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
 
+    ],
+    image: null
+},
+
+{
+    id: "what_co",
+    text: "\nThe Arcana company... I don't know what that means.\nBut there’s schematics here.\nBlueprints for something.\n",
+    choices: [
+        { text: "Can you try sending them?", next: "send_blueprints" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "send_blueprints",
+    text: "\nYa I think I just sent them. Did you get them?\n",
+    choices: [
+        { text: "Yep. What is this?", next: "file1got" },
+        // { text: "Ya I got them", next: "" }, 
+        // { text: "No...*evil chuckle*", next: "" }
+
+    ],
+    image: file/arcanalgo.png
+},
+
+{
+    id: "file1got",
+    text: "\nNo idea.\nHalf of it doesn't even look like english.\nMaybe its corrupted.\n",
+    choices: [
+        { text: "Keep digging. Anything about exits?", next: "ab_exits" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "ab_exits",
+    text: "\nHold on.\nFound a file on service tunnels.\nBut it is totally corrupted, wont even let me send it.\n",
+    choices: [
+        { text: "Keep looking.", next: "keep_l" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "keep_l",
+    text: "\nHold on.\nThere’s a maintenance schematic for a panel on the wall\nLooks like its behind the bookshelf.\n",
+    choices: [
+        { text: "Can you get behind the bookshelf?", next: "bookshelf_b" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "bookshelf_b",
+    text: "\nIt's pretty big...\ I can try, theres a reason my friends could shove me in the closet\nI'm not the strongest individual.",
+    choices: [
+        { text: "Go try! There's a chance it could help!", next: "bookshelf_f" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+// =======================================================================
+
+{
+    id: "",
+    text: "\n\n",
+    choices: [
+        { text: "", next: "" },
+        // { text: "", next: "" }, 
+        // { text: "", next: "" }
+
+    ],
+    image: null
+},
+
+// =======================================================================
     {
         id: "calm_response",
         text: '\nI-I’m trying, but it’s dark. There’s only this old terminal here. Then you showed up. I think I heard something moving outside.\n',

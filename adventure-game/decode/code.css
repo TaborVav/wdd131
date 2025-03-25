@@ -103,8 +103,12 @@ header h1 {
     text-shadow: 0.5px 0px #FFB347, -0.5px 0px rgba(255, 179, 71, 0.5);
 }
 
+.nav {
+    padding: 0 20px;
+}
+
 .nav-buttons button {
-    background: none;
+     background: none;
     border: 1px solid #FFB347;
     color: #FFB347;
     margin-left: 10px;
@@ -122,74 +126,28 @@ header h1 {
     background: #FFB347;
 }
 
-/* === MAIN CONTENT === */
+/* === MAIN LAYOUT === */
 
 main {
     display: flex;
     flex: 1;
     overflow: hidden;
+}
+
+.left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 20px;
+    overflow-y: hidden;
 }
 
-/* === INPUT AREA === */
-
-.input-area {
+.right-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
-}
-
-.input-box {
-    background-color: #000;
-    color: #FFB347;
-    border: 2px solid #FFB347;
-    padding: 10px;
-    height: 200px;
-    overflow-y: auto;
-}
-
-h2 {
-    margin: 0;
-    font-size: 1.5em;
-}
-
-.toggle-switch {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-}
-
-.toggle-switch input {
-    margin-bottom: 5px;
-}
-
-.shift-number {
-    margin-top: 20px;
-}
-
-.instructions {
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-
-/* === OUTPUT AREA === */
-
-.output-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-}
-
-.output-box {
-    background-color: #000;
-    color: #FFB347;
-    border: 2px solid #FFB347;
-    padding: 10px;
-    height: 200px;
-    overflow-y: auto;
+    border-left: 1px solid #FFB347;
 }
 
 /* === FOOTER === */
@@ -202,95 +160,68 @@ footer {
     color: #FFB347;
 }
 
-/* === UTILITY CLASSES === */
-
-.hidden {
-    display: none !important;
-}
-
-/* === MAIN LAYOUT === */
-main {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    justify-content: space-between;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* === INPUT/OUTPUT CONTAINER === */
-#input-output-container {
-    display: flex;
-    flex-direction: row;
-    width: 80%;  /* Takes up about 4/5ths of the screen */
-    gap: 20px;
-}
-
-/* === INDIVIDUAL AREA STYLES === */
-.input-area, .output-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-textarea {
-    width: 100%;
-    height: calc(100vh - 200px);  /* Make the textarea extend vertically */
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #FFB347;
-    background-color: transparent;
-    color: #FFB347;
-    font-family: 'degular-mono', 'Courier New', Courier, monospace;
-}
-
-textarea:focus {
-    outline: none;
-    border-color: #FF5733;
-}
-
-/* === LABEL STYLES === */
-label {
-    font-size: 1.1rem;
-    color: #FFB347;
-}
-
-/* === SETTINGS CONTAINER === */
-#settings-container {
-    flex: 0.2; /* Takes up the remaining 1/5th of the screen */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-/* === BUTTON AND NUMBER TRACKER === */
-.number-tracker input, .button-area button {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #FFB347;
-    background-color: transparent;
-    color: #FFB347;
-    width: 100%;
-}
-
-.button-area button:hover {
+/* ==== The switch - the box around the slider ==== */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* ==== Hide default HTML checkbox ==== */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* ==== The slider ==== */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 2px solid #FFB347;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
     background-color: #FFB347;
-    color: #000;
-}
+    -webkit-transition: .4s;
+    transition: .4s
+  }
 
-/* === SCROLLBAR CUSTOMIZATION === */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #FFB347;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
-}
+  
+  input:checked + .slider {
+    background-color: #FFB347;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #FFB347;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #000000
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

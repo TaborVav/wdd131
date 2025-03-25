@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="stylesheet" href="code.css">
+</head>
+<body>
+    <header>
+        <h1>ARCANA CO.</h1>
+        <img src="file/arcanalgo.png" alt="Logo" class="crt-logo" />
+        <div class="nav-buttons">
+            <button onclick="adventure-game/index.html">MAIN</button>
+            <button onclick="window.open('child2.html', '_blank')">ABOUT</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="settings-container">
+            <div class="number-tracker">
+                <label for="shift-value">Shift Value:</label>
+                <input type="number" id="shift-value" />
+            </div>
+            <div class="button-area">
+                <button id="toggle-encoder-decoder">Encode/Decode</button>
+            </div>
+        </div>
+    
+        <div id="input-output-container">
+            <div class="input-area">
+                <label for="user-input">Input</label>
+                <textarea id="user-input" placeholder="Enter text"></textarea>
+            </div>
+    
+            <div class="output-area">
+                <label for="output-text">Output</label>
+                <textarea id="output-text" readonly></textarea>
+            </div>
+        </div>
+    </main>
+    
+
+    <footer>
+        <p>SYSTEM STATUS: ONLINE | © 1952 ARCANA SYSTEMS</p>
+    </footer>   
+
+    <script src="code.js"></script>
+</body>
+</html>

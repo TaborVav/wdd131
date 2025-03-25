@@ -4,43 +4,104 @@
 ===========================
 
 boot
- ├── Hello? -> remnant_intro
- │             ├── Yes, vaguely. -> archives_intro
- │             └── No, what blackout? -> fragments_intro
- │                                  └── Back away. -> session_end
- │                                  └── Show me the fragments. -> file_found
- └── Who are you? -> founder_identity
-                   ├── What do you mean? -> archives_intro
-                   └── Terminate session -> session_end
+ ├── Initiate Program -> hello1
+ ├── Hello? -> hello
+ └── Help Games -> hello1
 
-archives_intro
- ├── Search archives -> file_found
- └── Ignore and proceed -> anomaly_detected
+hello1
+ ├── Yes hello -> hello
+ ├── OoOOoh I'm a ghost! -> silent2
+ └── . . . -> silent_1
 
-file_found
- ├── View file -> code_hint
- └── Decline -> anomaly_detected
+hello
+ ├── I am a real person. Who is this? -> who_response
+ ├── I know as much as you do. Who is this? -> who_response
+ └── . . . -> silent_1
 
-code_hint
- ├── Try to decode -> anomaly_detected
- └── Save it for later -> anomaly_detected
+silent_1
+ ├── . . . -> silent_2
+ ├── Hey I'm here! Who is this? -> who_response
+ └── Sorry, some interference. But I'm here. -> who_response
 
-anomaly_detected
- ├── Open anomaly report -> tampering_warning
- └── Ignore and continue search -> system_confrontation
+silent_2
+ ├── Hey I'm here, I don't know those people! Who's this? -> who_response
+ └── Darn interference. Computers... right? Who's this? -> who_response
 
-tampering_warning
- ├── Confront the system -> system_confrontation
- └── Stay silent for now -> system_monitoring
+who_response
+ └── Where are you? -> where
+ └── What happened? It just turned on?" -> "what_is_this"
 
-system_confrontation
- ├── End session -> session_end
- └── Probe for more info -> system_monitoring
+where
+ └── Can you describe the room? -> where_describe
 
-system_monitoring
- ├── Log off -> session_end
- └── Investigate deeper -> anomaly_detected (loops)
+where_describe
+ ├── Maybe see if the computer can show a way out -> try_computer
+ └── What about in the hallway? -> hall
 
-session_end (TERMINAL ENDING)
+hall
+ └── Well maybe the computer can help -> try_computer
+
+try_computer
+ ├── Company? What company? -> what_co
+ └── Files of what? -> wh_file
+
+what_co
+ ├── Can you try sending them? -> send_blueprints
+ └── Maybe the files can tell us something -> wh_file
+
+wh_file
+ └── Can you try sending it? -> send_blueprints
+
+send_blueprints
+ ├── Yep. What is this? -> file1got
+ └── No...evil chuckle -> evil_chuckles
+
+evil_chuckles
+ ├── uh....cough cough Anyway... -> awkward
+ └── No...evil chuckle again -> awkward
+
+awkward
+ └── Keep digging. Look for files about exits. -> ab_exits
+
+ab_exits
+ └── Keep looking -> heard
+
+heard
+ ├── Probably just your nerves. Keep looking. -> keep_l
+ ├── Could it be your friends? -> hall_friend
+ └── What did you hear? -> wh_hear
+
+keep_l
+ └── Can you get behind the bookshelf? -> bookshelf_b
+
+hall_friend
+ ├── Maybe just focus on the bookshelf. Can you get behind it? -> bookshelf_b
+ ├── You should go investigate, just in case -> inv1
+ └── What did it sound like? -> wh_hear
+
+wh_hear
+ ├── Yeah avoid that... Can you get behind the bookshelf? -> bookshelf_b
+ └── You should check it out -> inv1
+
+inv1
+ ├── Well better safe than sorry. Think you can get behind the bookshelf? -> bookshelf_b
+ └── Lets hope it was nothing. Can you move that bookshelf? -> bookshelf_b
+
+bookshelf_b
+ └── Go try! There's a chance it could help! -> bookshelf_f
+
+bookshelf_f
+ └── Great Job! Maybe we can find the code in the computer files? -> f_code
+
+f_code
+ └── Off how...? -> offhow
+
+offhow
+ └── Strange... -> somewhere
+
+somewhere
+ └── I'm not so sure you're alone -> not_sure
+
+not_sure
 ===========================
 */

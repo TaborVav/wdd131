@@ -18,9 +18,19 @@ const scenes = [
     id: "boot",
     text: "------------------------\n*** SYSTEM ONLINE ***\n------------------------\n\n",
     choices: [
-      { text: "Initiate Program?", next: "hello" },
+      { text: "Initiate Program?", next: "hello1" },
       { text: "Hello?", next: "hello" },
-      { text: "Help Games", next: "hello" },
+      { text: "Help Games", next: "hello1" },
+    ],
+    image: null,
+  },
+  {
+    id: "hello1",
+    text: "\nWhat is happening? Is someone there??\n",
+    choices: [
+      { text: "Yes hello.", next: "hello" },
+      { text: "OoOOoh I'm a ghost!", next: "silent2" },
+      { text: ". . .", next: "silent_1" },
     ],
     image: null,
   },
@@ -51,9 +61,8 @@ const scenes = [
     id: "silent_2",
     text: "\nJacob???? Adrian???? Colter????? Sarah?????\nIf this is you still messing with me the joke has gone way to far!\n",
     choices: [
-      { text: ". . .", next: "shutdown" },
       {
-        text: "Hey I'm here, sorry for the slow reply! Who's this?", next: "who_response"},
+        text: "Hey I'm here, I don't know those people! Who's this?", next: "who_response"},
       {
         text: "Darn interference. Computers... right? Who's this?", next: "who_response"},
     ],
@@ -65,73 +74,74 @@ const scenes = [
     text: "\nMy name’s Atlas.\nI thought I was alone.\nIt’s been hours.\nI tried this computer but couldn't get it to turn on until your message appeared, then it just turned on by itself\n",
     choices: [
       { text: "Where are you?", next: "where" },
-    //   { text: "What happened? It just turned on?", next: "what_is_this" },
-    //   { text: "It's been hours?", next: "how_long" },
+      { text: "What happened? It just turned on?", next: "what_is_this" },
+    ],
+    image: "file/0972.jpg",
+  },
+
+  {
+    id: "what_is_this",
+    text: "\nI don’t really know. One minute, it’s dead. Then I get your message... and it just turns on.\nIt’s like it’s waiting for something.\n",
+    choices: [
+      { text: "Maybe it's a trap. Can you get out?", next: "can_get_out" },
+      {
+        text: "Something's off. Something's messing with you.", next: "something_off",
+      },
     ],
     image: null,
   },
 
-//   {
-//     id: "what_is_this",
-//     text: "\nI don’t really know. One minute, it’s dead. Then I get your message... and it just turns on.\nIt’s like it’s waiting for something.\n",
-//     choices: [
-//       { text: "Maybe it's a trap. Can you get out?", next: "can_get_out" },
-//       {
-//         text: "Something's off. Something's messing with you.", next: "something_off",
-//       },
-//     ],
-//     image: null,
-//   },
+  
 
-//   {
-//     id: "how_long",
-//     text: "\nYa, I don’t know... Hours? Maybe longer. I’ve lost track.\nI’ve just been stuck here, trying to figure out what happened, but the place is all dark and cold.\nIt’s like the walls are closing in.\n",
-//     choices: [
-//     //   { text: "Stay calm. We'll figure this out.", next: "stay_calm" },
-//       { text: "Can you hear anything? Anyone else?", next: "anyone_else" },
-//     ],
-//     image: null,
-//   },
+  {
+    id: "how_long",
+    text: "\nYa, I don’t know... Hours? Maybe longer. I’ve lost track.\nI’ve just been stuck here, trying to figure out what happened, but the place is all dark and cold.\nIt’s like the walls are closing in.\n",
+    choices: [
+    //   { text: "Stay calm. We'll figure this out.", next: "stay_calm" },
+      { text: "Can you hear anything? Anyone else?", next: "anyone_else" },
+    ],
+    image: null,
+  },
 
-//   {
-//     id: "anyone_else",
-//     text: "\nNo. I don’t hear anyone else.\nBut… sometimes I swear I hear something.\nNot just the hum. Footsteps. Breathing.\nSomething’s moving.\n",
-//     choices: [
-//         { text: "That's just your mind playing tricks.", next: "mind_tricks" },
-//         { text: "You need to be careful. This could be dangerous.", next: "dangerous" }
-//     ],
-//     image: null
-// },
+  {
+    id: "anyone_else",
+    text: "\nNo. I don’t hear anyone else.\nBut… sometimes I swear I hear something.\nNot just the hum. Footsteps. Breathing.\nSomething’s moving.\n",
+    choices: [
+        { text: "That's just your mind playing tricks.", next: "mind_tricks" },
+        { text: "You need to be careful. This could be dangerous.", next: "dangerous" }
+    ],
+    image: null
+},
 
-// {
-//     id: "mind_tricks",
-//     text: "\nYeah, probably.\nI’m just so alone down here... It’s messing with me.\nLet’s focus. Any chance you can help me find a way out?\n",
-//     choices: [
-//         { text: "I can try. Do you have any idea where you are?", next: "where" },
-//         // { text: "Tell me more about that hum. Is it constant?", next: "hum_constant" }
-//     ],
-//     image: null
-// },
+{
+    id: "mind_tricks",
+    text: "\nYeah, probably.\nI’m just so alone down here... It’s messing with me.\nLet’s focus. Any chance you can help me find a way out?\n",
+    choices: [
+        { text: "I can try. Do you have any idea where you are?", next: "where" },
+        // { text: "Tell me more about that hum. Is it constant?", next: "hum_constant" }
+    ],
+    image: null
+},
 
-// {
-//     id: "dangerous",
-//     text: "\nYeah... Something’s definitely wrong.\nI just hope whatever’s out there isn’t paying attention to me.\n",
-//     choices: [
-//         // { text: "Stay quiet. We don’t want to draw attention.", next: "stay_quiet" },
-//         { text: "You have to find a way out. This isn’t safe.", next: "find_way_out" }
-//     ],
-//     image: null
-// },
+{
+    id: "dangerous",
+    text: "\nYeah... Something’s definitely wrong.\nI just hope whatever’s out there isn’t paying attention to me.\n",
+    choices: [
+        // { text: "Stay quiet. We don’t want to draw attention.", next: "stay_quiet" },
+        { text: "You have to find a way out. This isn’t safe.", next: "find_way_out" }
+    ],
+    image: null
+},
 
-// {
-//     id: "find_way_out",
-//     text: "\nI know.\nI’m looking around. But everything’s so… sealed off.\nI don’t know how much longer I can last in here.\n",
-//     choices: [
-//         { text: "Where are you exactly?", next: "where" },
-//         // { text: "Can you see anything that could help? A way out?", next: "way_out" }
-//     ],
-//     image: null
-// },
+{
+    id: "find_way_out",
+    text: "\nI know.\nI’m looking around. But everything’s so… sealed off.\nI don’t know how much longer I can last in here.\n",
+    choices: [
+        { text: "Where are you exactly?", next: "where" },
+        // { text: "Can you see anything that could help? A way out?", next: "way_out" }
+    ],
+    image: null
+},
 
   {
     id: "where",
@@ -140,7 +150,7 @@ const scenes = [
       { text: "Can you describe the room?", next: "where_describe" },
       // { text: "Check to see if the door can be opened again.", next: "" },
     ],
-    image: null,
+    image: "file/7312.png",
   },
 
   {
@@ -342,16 +352,16 @@ const scenes = [
     image: null,
   },
 
-//   {
-//     id: "blu_aha",
-//     text: "\nNo.\nNot a thing...\nWait a minute.\nIt is hard to say for sure, it was dark and I was really freaking out\n but this might be the closet I was stuck inside!\n I remember hitting my elbow on what felt like a metal bar and this schematic has that weird lever!\n And the door on the right looks similar to the door I fell out of into the hallway!\n",
-//     choices: [
-//       { text: "Now we are getting somewhere!", next: "somewhere" },
-//       // { text: "You dumb kid, how did you not see that sooner?!", next: "" },
-//       // { text: "", next: "" }
-//     ],
-//     image: null,
-//   },
+  {
+    id: "blu_aha",
+    text: "\nNo.\nNot a thing...\nWait a minute.\nIt is hard to say for sure, it was dark and I was really freaking out\n but this might be the closet I was stuck inside!\n I remember hitting my elbow on what felt like a metal bar and this schematic has that weird lever!\n And the door on the right looks similar to the door I fell out of into the hallway!\n",
+    choices: [
+      { text: "Now we are getting somewhere!", next: "somewhere" },
+      // { text: "You dumb kid, how did you not see that sooner?!", next: "" },
+      // { text: "", next: "" }
+    ],
+    image: null,
+  },
 
   {
     id: "somewhere",
@@ -374,16 +384,16 @@ const scenes = [
     image: null,
   },
 // --------
-//   {
-    // id: "nerves",
-    // text: "\nYa you're proabably right.\n Lets get back to work.\nI want to get out of here!\nWe know there's a code panel, and we have the 'Schematic #7' with the closet/device I got shoved in.\nWhat do you think we should focus on?\n",
-    // choices: [
-    //   { text: "Let's look for clues with the closet you got trapped in.", next: "clu_thepod" },
-      // { text: "Let's see if we can find out more about that code panel.", next: "" },
-      // { text: "I have another question.", next: "noth_q" }
-//     ],
-//     image: null,
-//   },
+  {
+    id: "nerves",
+    text: "\nYa you're proabably right.\n Lets get back to work.\nI want to get out of here!\nWe know there's a code panel, and we have the 'Schematic #7' with the closet/device I got shoved in.\nWhat do you think we should focus on?\n",
+    choices: [
+      { text: "Let's look for clues with the closet you got trapped in.", next: "clu_thepod" },
+      { text: "Let's see if we can find out more about that code panel.", next: "" },
+      { text: "I have another question.", next: "noth_q" }
+    ],
+    image: null,
+  },
 
   {
     id: "saw_what",
@@ -418,32 +428,32 @@ const scenes = [
     image: null,
   },
 
-//   {
-//     id: "flicker_call",
-//     text: "\nWait... I hear it again. My name... faint, but it's there. From the hallway.\nWho’s messing with me? Why now? I thought it was just me here.\n",
-//     choices: [
-//       {
-//         text: "That’s strange. Could it be another person?",
-//         next: "strange_voice",
-//       },
-//       { text: "We need to focus. Forget about the voice.", next: "focus" },
-//       {
-//         text: "Go check the hallway again. This is too weird.",
-//         next: "investigate_flicker_2",
-//       },
-//     ],
-//     image: null,
-//   },
+  {
+    id: "flicker_call",
+    text: "\nWait... I hear it again. My name... faint, but it's there. From the hallway.\nWho’s messing with me? Why now? I thought it was just me here.\n",
+    choices: [
+      {
+        text: "That’s strange. Could it be another person?",
+        next: "strange_voice",
+      },
+      { text: "We need to focus. Forget about the voice.", next: "focus" },
+      {
+        text: "Go check the hallway again. This is too weird.",
+        next: "investigate_flicker_2",
+      },
+    ],
+    image: null,
+  },
 
-//   {
-//     id: "stay_away",
-//     text: "\nOh I am.\n I wish there was a door I could lock.\nOkay, but really. That was messed up...\nLet’s get back to the panel and the files and get me out of here.\n",
-//     choices: [
-//       { text: "Alright, let’s focus.", next: "pro_ima" },
-//       { text: "Do you still have that blueprint?", next: "blu_aha" },
-//     ],
-//     image: null,
-//   },
+  {
+    id: "stay_away",
+    text: "\nOh I am.\n I wish there was a door I could lock.\nOkay, but really. That was messed up...\nLet’s get back to the panel and the files and get me out of here.\n",
+    choices: [
+      { text: "Alright, let’s focus.", next: "pro_ima" },
+      { text: "Do you still have that blueprint?", next: "blu_aha" },
+    ],
+    image: null,
+  },
 
   {
     id: "connect_hum",
@@ -455,54 +465,54 @@ const scenes = [
     image: null,
   },
 
-//   {
-//     id: "clu_thepod",
-//     text: "\nAlright let me see if I can find any file that explains the 'closet'.\nMaybe if I look in a nearby file.\nHmmm... This is interesting.\nDoes this make any sense to you?\n",
-//     choices: [
-//       { text: "It does!", next: "does" },
-//       { text: "Not a clue.", next: "doesnt" },
-//     ],
-//     image: "",
-//   },
+  {
+    id: "clu_thepod",
+    text: "\nAlright let me see if I can find any file that explains the 'closet'.\nMaybe if I look in a nearby file.\nHmmm... This is interesting.\nDoes this make any sense to you?\n",
+    choices: [
+      { text: "It does!", next: "does" },
+      { text: "Not a clue.", next: "doesnt" },
+    ],
+    image: "",
+  },
 
-//   {
-//     id: "does",
-//     text: "\nGood, because I don’t.\nIt’s labeled 'Subject Containment'...\nWhy would they call a closet that?\n",
-//     choices: [
-//       { text: "Maybe it's not really a closet.", next: "containment_room" },
-//       { text: "Weird. Keep looking.", next: "keep_l" },
-//     ],
-//     image: null,
-//   },
+  {
+    id: "does",
+    text: "\nGood, because I don’t.\nIt’s labeled 'Subject Containment'...\nWhy would they call a closet that?\n",
+    choices: [
+      { text: "Maybe it's not really a closet.", next: "containment_room" },
+      { text: "Weird. Keep looking.", next: "keep_l" },
+    ],
+    image: null,
+  },
 
-//   {
-//     id: "doesnt",
-//     text: "\nNo worries, me neither.\nBut it’s labeled 'Subject Containment'.\nSounds... intense.\n",
-//     choices: [
-//       {
-//         text: "That doesn't sound like a normal closet...",
-//         next: "containment_room",
-//       },
-//       {
-//         text: "Keep digging, maybe something else explains it.",
-//         next: "keep_l",
-//       },
-//     ],
-//     image: null,
-//   },
+  {
+    id: "doesnt",
+    text: "\nNo worries, me neither.\nBut it’s labeled 'Subject Containment'.\nSounds... intense.\n",
+    choices: [
+      {
+        text: "That doesn't sound like a normal closet...",
+        next: "containment_room",
+      },
+      {
+        text: "Keep digging, maybe something else explains it.",
+        next: "keep_l",
+      },
+    ],
+    image: null,
+  },
 
-//   {
-//     id: "containment_room",
-//     text: "\nYeah...\nNow that you mention it...\nWhat if I wasn’t supposed to get out of that 'closet'?\n",
-//     choices: [
-//       {
-//         text: "You think they were keeping something locked inside?",
-//         next: "whatlocked",
-//       },
-//       { text: "Let's not jump to conclusions yet.", next: "keep_l" },
-//     ],
-//     image: null,
-//   },
+  {
+    id: "containment_room",
+    text: "\nYeah...\nNow that you mention it...\nWhat if I wasn’t supposed to get out of that 'closet'?\n",
+    choices: [
+      {
+        text: "You think they were keeping something locked inside?",
+        next: "whatlocked",
+      },
+      { text: "Let's not jump to conclusions yet.", next: "keep_l" },
+    ],
+    image: null,
+  },
 
   {
     id: "",

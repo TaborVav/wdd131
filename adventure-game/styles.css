@@ -48,7 +48,7 @@ body {
     flex-direction: column;
     height: 100vh;
     animation: flicker 3s infinite steps(1), screenShift 5s infinite steps(1);
-    text-shadow: 0 0 2px #FFB347, 0 0 5px #FFB347, 0 0 10px rgba(255, 179, 71, 0.5);
+    text-shadow: 0 0 2px #FFB347, 0 0 1px #FFB347, 0 0 10px rgba(255, 179, 71, 0.5);
 }
 
 /* === CRT OVERLAY EFFECTS === */
@@ -107,7 +107,7 @@ header h1 {
     padding: 0 20px;
 }
 
-.nav-buttons button {
+nav button{
      background: none;
     border: 1px solid #FFB347;
     color: #FFB347;
@@ -121,7 +121,7 @@ header h1 {
     align-items: center; 
 }
 
-.nav-buttons button:hover {
+nav :hover {
     color: #000;
     background: #FFB347;
 }

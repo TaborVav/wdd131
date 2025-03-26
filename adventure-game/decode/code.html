@@ -11,10 +11,10 @@
     <header>
         <h1>ARCANA CO.</h1>
         <img src="file/arcanalgo.png" alt="Logo" class="crt-logo" />
-        <div class="nav-buttons">
-            <button onclick="window.location.href='index.html'">MAIN</button>
-            <button onclick="window.open('child2.html', '_blank')">ABOUT</button>
-        </div>
+        <nav>
+            <a href="../index.html"><button>MAIN</button></a>
+            <a href="../about/about.html"><button>ABOUT</button></a>
+        </nav>
     </header>
 
     <main>
@@ -27,14 +27,14 @@
             <p>DECODE</p>
             <div class="number-tracker">
                 <label for="shift-value">Shift Value:</label>
-                <input type="number" id="shift-value" />
+                <input type="number" id="shift-value" placeholder="0" />
             </div>
             <button id="submit-btn">SUBMIT</button>
             <ol>
-                <li><u>Choose your mode:</u> Use the toggle switch to select either Encode or Decode. Encoding transforms your text into a coded format, while decoding returns the text to its original form.</li>
-                <li><u>Set the Shift Value:</u> Enter a number (shift value) into the box. This number determines how many positions each letter in your text will be shifted.</li>
-                <li><u>Enter Your Text:</u> Type or paste the text you want to encode or decode into the input area.</li>
-                <li><u>Submit:</u> Click the Submit button to apply the shift. The result will appear in the output area.</li>
+                <li><u>Choose your mode:</u> Use the toggle to select Encode or Decode. Encoding changes your text, decoding restores it.</li>
+                <li><u>Set the Shift Value:</u> Enter a number to shift each letter by that many positions.</li>
+                <li><u>Enter Your Text:</u> Type or paste the text to encode or decode.</li>
+                <li><u>Submit:</u> Click Submit to apply the shift and see the result.</li>
             </ol>
         </div>
   

@@ -34,6 +34,7 @@ const scenes = [
     ],
     image: null,
   },
+
   
     {
       id: "silent_1",
@@ -72,20 +73,30 @@ const scenes = [
       id: "who_response",
       text: "\nMy name’s Atlas.\nI thought I was alone.\nIt’s been hours.\nI tried this computer but couldn't get it to turn on until your message appeared, then it just turned on by itself\n",
       choices: [
-        { text: "Where are you?", next: "where" },
-        { text: "What happened? It just turned on?", next: "what_is_this" },
+        { text: "This is strange...", next: "identity" },
+        { text: "It just turned on?", next: "identity" },
       ],
       image: null,
     },
 
     {
-      id: "what_is_this",
-      text: "\nMy name’s Atlas.\nI thought I was alone.\nIt’s been hours.\nI tried this computer but couldn't get it to turn on until your message appeared, then it just turned on by itself\n",
+      id: "identity",
+      text: "\n--- System Identity Program Initiated ---\n--- Smile ---\n--- Photo Procured ---\n--- Identity Updated ---\n--- Filing Photo ---\n",
+      choices: [
+        { text: ". . .", next: "whatwhy" },
+        { text: "What just happened?!", next: "whatwhy" },
+      ],
+      image: null,
+    },
+
+    {
+      id: "whatwhy",
+      text: "\nThat was... weird... ya. That was weird. What sort of place is this?\n",
       choices: [
         { text: "Where are you?", next: "where" },
         { text: "What happened? It just turned on?", next: "what_is_this" },
       ],
-      image: null,
+      image: "file/atlas-ID.png",
     },
 
     {
@@ -169,7 +180,7 @@ const scenes = [
       { text: "Send it over. I'll take a look.", next: "send_cipher" },
       { text: "Oof I didnt know I'd be doing homework for you. But okay, send it.", next: "send_cipher" }
     ],
-    image: null
+    image: "file/0972.jpg"
 },
 
 {
@@ -179,7 +190,7 @@ const scenes = [
       { text: "Got it. I'll study this.", next: "puzzle_prep" },
       { text: "Maybe it’s part of a puzzle system for this facility.", next: "puzzle_prep" }
     ],
-    image: "file/0972.jpg" 
+    image: null, 
 },
 
 {
@@ -274,7 +285,7 @@ const scenes = [
 
 {
     id: "descent",
-    text: "\nI’m climbing down.\nIt’s cold. The air feels… wrong. Heavy.\n\nWait. There’s something—\nA light—\n\nOh God.\n\nI see—\n",
+    text: "\nI’m climbing down.\nIt’s cold. The air feels… wrong. Heavy.\n\nWait. There’s something—\nA light—\n\nOh...\n\nI see—\n",
     choices: [
       { text: "(Continue)", next: "endings" }
     ],
@@ -326,11 +337,11 @@ const scenes = [
 
 {
     id: "stay",
-    text: "\nYou remain in the system.\nWatching.\n\nAtlas leaves, climbing into the unknown.\n\nAnd you are left behind.\nAlone.\n\n[END]",
+    text: "\nYou remain in the system.\nWatching.\n\nAtlas leaves, climbing into the unknown.\n\nAnd you are left behind.\nAlone.\nHere is a cute dog to help you feel better\n\n[END]",
     choices: [
       { text: "Restart?", next: "boot" }
     ],
-    image: null
+    image:  "file/0972.jpg"
 },
 
 // === ENDING 3: Atlas Was the Computer All Along ===

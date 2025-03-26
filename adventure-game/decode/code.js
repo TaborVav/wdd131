@@ -1,47 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const toggleButton = document.getElementById("toggle-encoder-decoder");
-    const shiftInput = document.getElementById("shift-value");
-    const userInput = document.getElementById("user-input");
-    const outputText = document.getElementById("output-text");
-
-    let isEncoding = true;  // By default, the button will encode
-
-    // Function to handle the Caesar Cipher encoding/decoding
-    function caesarCipher(text, shift, encode = true) {
-        const result = [];
-        const shiftValue = encode ? shift : -shift;  // Negative shift for decoding
-
-        for (let i = 0; i < text.length; i++) {
-            let char = text[i];
-
-            if (/[a-zA-Z]/.test(char)) {  // If it's a letter, apply the cipher
-                const startCharCode = char === char.toLowerCase() ? 97 : 65;  // a=97, A=65
-                const newChar = String.fromCharCode(
-                    ((char.charCodeAt(0) - startCharCode + shiftValue + 26) % 26) + startCharCode
-                );
-                result.push(newChar);
-            } else {
-                result.push(char);  // Non-alphabet characters remain unchanged
-            }
-        }
-
-        return result.join('');
+// Event listener for the submit button
+document.getElementById('submit-btn').addEventListener('click', function() {
+    // Get user input and shift value
+    const userInput = document.getElementById('user-input').value;
+    const shiftValue = parseInt(document.getElementById('shift-value').value);
+    
+    // Validate input
+    if (isNaN(shiftValue)) {
+        alert("Please enter a valid shift value.");
+        return;
     }
 
-    // Event listener for the button to toggle encoding/decoding
-    toggleButton.addEventListener("click", () => {
-        // Toggle between encoding and decoding
-        isEncoding = !isEncoding;
-        toggleButton.textContent = isEncoding ? "Encode" : "Decode";  // Change button text
-        outputText.value = "";  // Clear output when toggling
-    });
+    // Check if toggle switch is ON (decode) or OFF (encode)
+    const isDecoding = document.querySelector('.switch input').checked;
+    
+    // If decoding, reverse the shift value
+    const finalShift = isDecoding ? -shiftValue : shiftValue;
 
-    // Event listener for the submit button to process input and apply cipher
-    document.getElementById("submit-btn").addEventListener("click", () => {
-        const shift = parseInt(shiftInput.value) || 0;  // Get the shift value
-        const inputText = userInput.value;  // Get the input text
+    // Call the Caesar cipher function
+    const cipherText = caesarCipher(userInput, finalShift);
+    
+    // Display the ciphered text in the output area
+    document.getElementById('output-text').value = cipherText;
+});
 
-        // Apply the cipher to the input text and update the output field
-        outputText.value = caesarCipher(inputText, shift, isEncoding);
-    });
+// Caesar cipher function
+function caesarCipher(input, shift) {
+    let cipheredText = '';
+    
+    // Loop through the input text
+    for (let i = 0; i < input.length; i++) {
+        const char = input[i];
+
+        if (char.match(/[a-zA-Z]/)) {
+            // Check if it's a letter and apply the shift
+            const base = char === char.toLowerCase() ? 97 : 65; // ASCII 'a' or 'A'
+            const charCode = char.charCodeAt(0);
+            const shiftedCode = (charCode - base + shift + 26) % 26 + base;
+            cipheredText += String.fromCharCode(shiftedCode);
+        } else {
+            // If it's not a letter, add the character unchanged
+            cipheredText += char;
+        }
+    }
+    return cipheredText;
+}
+
+// Optional: Toggling dark/light mode with the switch
+const switchToggle = document.querySelector('.switch input');
+switchToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
 });

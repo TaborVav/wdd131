@@ -114,11 +114,11 @@ header h1 {
     margin-left: 10px;
     margin-right: 30px;
     cursor: pointer;
-    padding: 8px 16px; /* Adjust padding to better match the header height */
-    height: 100%; /* Makes the button stretch to match header's height */
+    padding: 8px 16px; 
+    height: 100%; 
     font-size: 1rem;
     display: inline-flex;
-    align-items: center; /* Vertically center text inside button */
+    align-items: center; 
 }
 
 .nav-buttons button:hover {
@@ -451,6 +451,8 @@ footer {
     font-family: 'degular-mono', 'Courier New', Courier, monospace;
     font-size: 1em;
 }
+
+
 
 
 

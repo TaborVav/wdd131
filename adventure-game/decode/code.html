@@ -5,30 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="code.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ryv1jdd.css">
 </head>
 <body>
     <header>
         <h1>ARCANA CO.</h1>
         <img src="file/arcanalgo.png" alt="Logo" class="crt-logo" />
         <div class="nav-buttons">
-            <button onclick="adventure-game/index.html">MAIN</button>
+            <button onclick="window.location.href='index.html'">MAIN</button>
             <button onclick="window.open('child2.html', '_blank')">ABOUT</button>
         </div>
     </header>
 
     <main>
         <div id="settings-container">
+            <p>ENCODE</p>
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
+            <p>DECODE</p>
             <div class="number-tracker">
                 <label for="shift-value">Shift Value:</label>
                 <input type="number" id="shift-value" />
             </div>
-            <p>Describe how to use the decoder here.</p>
+            <button id="submit-btn">SUBMIT</button>
+            <ol>
+                <li><u>Choose your mode:</u> Use the toggle switch to select either Encode or Decode. Encoding transforms your text into a coded format, while decoding returns the text to its original form.</li>
+                <li><u>Set the Shift Value:</u> Enter a number (shift value) into the box. This number determines how many positions each letter in your text will be shifted.</li>
+                <li><u>Enter Your Text:</u> Type or paste the text you want to encode or decode into the input area.</li>
+                <li><u>Submit:</u> Click the Submit button to apply the shift. The result will appear in the output area.</li>
+            </ol>
         </div>
-    
+  
         <div id="input-output-container">
             <div class="input-area">
                 <label for="user-input">Input</label>

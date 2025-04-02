@@ -81,7 +81,7 @@ const scenes = [
 
     {
       id: "identity",
-      text: "\n--- System Identity Program Initiated ---\n--- Smile ---\n--- Photo Procured ---\n--- Identity Updated ---\n--- Filing Photo ---\n",
+      text: "\n--- System Identity Program Initiated ---\nNAME: ATLAS\n--- Smile ---\n--- Photo Procured ---\n--- Identity Updated ---\n--- Filing Photo ---\n",
       choices: [
         { text: ". . .", next: "whatwhy" },
         { text: "What just happened?!", next: "whatwhy" },

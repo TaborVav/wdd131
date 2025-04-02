@@ -96,7 +96,7 @@ const scenes = [
         { text: "Where are you?", next: "where" },
         { text: "What happened? It just turned on?", next: "what_is_this" },
       ],
-      image: "file/atlas-ID.png",
+      image: "file/atlas-id.png",
     },
 
     {

@@ -121,7 +121,7 @@ nav button{
     align-items: center; 
 }
 
-nav :hover {
+nav button:hover {
     color: #000;
     background: #FFB347;
 }
